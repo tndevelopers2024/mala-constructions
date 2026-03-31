@@ -192,6 +192,28 @@ body::after {
 }
 
 /* Lightbox overrides */
-.yarl__root {
-  --yarl__color_backdrop: rgba(14, 14, 14, 0.96);
+/* Buttons */
+.btn-gold {
+  border: 1px solid var(--color-gold);
+  background: transparent;
+  color: var(--color-gold);
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: var(--color-gold);
+  color: var(--color-obsidian);
+}
+
+.btn-gold:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

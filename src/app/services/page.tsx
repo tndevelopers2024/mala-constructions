@@ -128,27 +128,8 @@ export default function ServicesPage() {
 
                   <Link
                     href="/contact"
-                    style={{
-                      display: 'inline-block',
-                      border: '1px solid var(--color-gold)',
-                      background: 'transparent',
-                      color: 'var(--color-gold)',
-                      padding: '12px 28px',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '12px',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      textDecoration: 'none',
-                      transition: 'background 0.3s, color 0.3s',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'var(--color-gold)'
-                      e.currentTarget.style.color = 'var(--color-obsidian)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'transparent'
-                      e.currentTarget.style.color = 'var(--color-gold)'
-                    }}
+                    className="btn-gold"
+                    style={{ padding: '12px 28px' }}
                   >
                     Discuss This Service →
                   </Link>

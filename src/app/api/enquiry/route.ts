@@ -59,7 +59,7 @@ Received: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (err) {
     if (err instanceof z.ZodError) {
-      return NextResponse.json({ error: 'Invalid form data', details: err.errors }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid form data', details: err.issues }, { status: 400 })
     }
     console.error('Enquiry API error:', err)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })

@@ -104,9 +104,8 @@ export default function StayPage() {
             {AMENITIES.map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}
+                className="amenity-card"
                 style={{ border: '0.5px solid #C2B49A40', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', transition: 'border-color 0.25s' }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--color-gold)')}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = '#C2B49A40')}
               >
                 <Icon size={28} style={{ color: 'var(--color-gold)' }} />
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 400, color: 'var(--color-ink)' }}>{label}</h3>
@@ -162,9 +161,8 @@ export default function StayPage() {
           </p>
           <Link
             href="/contact"
-            style={{ display: 'inline-block', border: '1px solid var(--color-gold)', background: 'transparent', color: 'var(--color-gold)', padding: '16px 40px', fontFamily: 'var(--font-body)', fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', transition: 'background 0.3s, color 0.3s' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--color-gold)'; e.currentTarget.style.color = 'var(--color-obsidian)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--color-gold)' }}
+            className="btn-gold"
+            style={{ padding: '16px 40px' }}
           >
             Enquire for Availability →
           </Link>

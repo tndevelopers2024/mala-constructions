@@ -134,21 +134,10 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
               <Link
                 href="/contact"
+                className="btn-gold"
                 style={{
-                  border: '1px solid var(--color-gold)',
-                  background: 'transparent',
-                  color: 'var(--color-gold)',
                   padding: '14px 32px',
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '12px',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  display: 'inline-block',
-                  transition: 'background 0.3s, color 0.3s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--color-gold)'; e.currentTarget.style.color = 'var(--color-obsidian)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--color-gold)' }}
               >
                 Enquire About This Project
               </Link>
