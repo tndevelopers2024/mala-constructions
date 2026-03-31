@@ -1,4 +1,5 @@
 export interface Service {
+  id: string
   name: string
   desc: string
   deliverables: string[]
@@ -7,63 +8,68 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    id: 'residential',
     name: 'Residential Masterpieces',
     desc: 'Designing and constructing dream homes with care and precision.',
     deliverables: [
-      'Custom floor plans tailored to your lifestyle',
-      'Premium material sourcing and quality assurance',
-      'End-to-end project management from foundation to finish',
-      'Vaasthu-compliant designs upon request',
-      'Post-construction support and warranty',
+      'Custom villa and bungalow design',
+      'Structural engineering and RCC framing',
+      'Interior finishing to client specification',
+      'Vaasthu-compliant layouts',
+      'End-to-end project management',
     ],
-    image: 'https://picsum.photos/seed/residential/800/600',
+    image: 'https://picsum.photos/seed/residential-service/800/600',
   },
   {
+    id: 'commercial',
     name: 'Commercial Excellence',
     desc: 'Modern offices, retail outlets, and industrial facilities.',
     deliverables: [
-      'Space optimization for maximum business efficiency',
-      'Compliance with commercial building regulations',
-      'Modern facade and interior design',
-      'Electrical and HVAC integration',
-      'Timely delivery for business continuity',
+      'Retail outlet construction and fit-out',
+      'Office space design and build',
+      'Industrial facility construction',
+      'Commercial renovation and upgrades',
+      'Permit acquisition and compliance',
     ],
-    image: 'https://picsum.photos/seed/commercial/800/600',
+    image: 'https://picsum.photos/seed/commercial-service/800/600',
   },
   {
+    id: 'renovation',
     name: 'Renovation & Transformation',
     desc: 'Breathing new life into existing spaces with innovative remodeling.',
     deliverables: [
-      'Structural assessment and reinforcement',
-      'Modern interior redesign and space reconfiguration',
-      'Plumbing and electrical upgrades',
-      'Exterior facade renovation',
-      'Minimal disruption during renovation process',
+      'Complete interior overhaul',
+      'Structural modifications and extensions',
+      'Kitchen and bathroom renovation',
+      'Facade and exterior upgrades',
+      'MEP system upgrades',
     ],
-    image: 'https://picsum.photos/seed/renovation/800/600',
+    image: 'https://picsum.photos/seed/renovation-service/800/600',
   },
   {
+    id: 'infrastructure',
     name: 'Infrastructure Development',
     desc: 'Roads, utilities, and community infrastructure projects.',
     deliverables: [
-      'Road construction and repair',
-      'Drainage and sewage systems',
-      'Water supply and distribution networks',
-      'Community building and public spaces',
-      'Government project execution experience',
+      'Road and pavement construction',
+      'Underground utility networks',
+      'Storm water drainage systems',
+      'Community facility development',
+      'Government contract execution',
     ],
-    image: 'https://picsum.photos/seed/infrastructure/800/600',
+    image: 'https://picsum.photos/seed/infrastructure-service/800/600',
   },
   {
-    name: '24x7 Maintenance',
+    id: 'maintenance',
+    name: '24×7 Maintenance',
     desc: 'Round-the-clock maintenance for residential and commercial buildings.',
     deliverables: [
-      'Emergency repair and response services',
+      '24-hour emergency response',
       'Scheduled preventive maintenance',
-      'Plumbing, electrical, and structural upkeep',
+      'Electrical and plumbing repairs',
+      'Structural inspection and repair',
       'Annual maintenance contracts',
-      'Dedicated support team on call',
     ],
-    image: 'https://picsum.photos/seed/maintenance/800/600',
+    image: 'https://picsum.photos/seed/maintenance-service/800/600',
   },
 ]

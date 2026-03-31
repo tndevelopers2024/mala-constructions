@@ -3,85 +3,109 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import SectionNumber from '@/components/ui/SectionNumber'
-import { fadeUp, staggerContainer } from '@/lib/animations'
+import { fadeUp } from '@/lib/animations'
 
-const valuePills = ['Quality Craftsmanship', 'Client Satisfaction', 'Sustainable Practices']
+const VALUE_PILLS = ['Quality Craftsmanship', 'Client Satisfaction', 'Sustainable Practices']
 
 export default function Vision() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-32 lg:py-40"
-      style={{ backgroundColor: 'var(--color-obsidian)' }}
+      style={{
+        backgroundColor: 'var(--color-obsidian)',
+        position: 'relative',
+        overflow: 'hidden',
+        textAlign: 'center',
+      }}
+      className="section-padding"
     >
-      <div className="max-w-2xl mx-auto px-6 md:px-12 text-center relative">
-        <SectionNumber number="05" className="-top-8 left-1/2 -translate-x-1/2" />
+      <SectionNumber number="05" />
 
+      <div
+        className="max-content"
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '740px',
+          margin: '0 auto',
+        }}
+      >
+        {/* Decorative gold line */}
         <motion.div
-          className="relative z-10"
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            width: '60px',
+            height: '1px',
+            backgroundColor: 'var(--color-gold)',
+            margin: '0 auto 2.5rem',
+            transformOrigin: 'left',
+          }}
+        />
+
+        <motion.blockquote
           variants={fadeUp}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={inView ? 'visible' : 'hidden'}
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(24px, 3.5vw, 42px)',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            color: 'var(--color-white)',
+            lineHeight: 1.4,
+            letterSpacing: '-0.01em',
+            marginBottom: '2rem',
+          }}
         >
-          {/* Gold rule centered */}
-          <div
-            className="mx-auto mb-10"
-            style={{ width: 60, height: 1, backgroundColor: 'var(--color-gold)' }}
-          />
+          "We don't just build buildings — we build lasting relationships with our clients, contributing to their vision and growth."
+        </motion.blockquote>
 
-          <blockquote
-            className="mb-8"
-            style={{
-              fontFamily: 'var(--font-cormorant), serif',
-              fontSize: 'var(--text-title)',
-              fontWeight: 300,
-              fontStyle: 'italic',
-              color: 'var(--color-white)',
-              lineHeight: 1.5,
-            }}
-          >
-            &ldquo;We don&apos;t just build buildings — we build lasting relationships
-            with our clients, contributing to their vision and growth.&rdquo;
-          </blockquote>
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          transition={{ delay: 0.15 }}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '12px',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-ash)',
+            marginBottom: '2.5rem',
+          }}
+        >
+          — Mala Constructions, Est. 1999
+        </motion.p>
 
-          <p
-            className="mb-10"
-            style={{
-              fontFamily: 'var(--font-dm-sans), sans-serif',
-              fontSize: '12px',
-              letterSpacing: '0.06em',
-              color: 'var(--color-ash)',
-            }}
-          >
-            — Mala Constructions, Est. 1999
-          </p>
-
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-3"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-          >
-            {valuePills.map((pill) => (
-              <motion.span
-                key={pill}
-                className="px-4 py-2"
-                style={{
-                  border: '0.5px solid var(--color-graphite)',
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: '12px',
-                  letterSpacing: '0.04em',
-                  color: 'var(--color-ash)',
-                }}
-                variants={fadeUp}
-              >
-                {pill}
-              </motion.span>
-            ))}
-          </motion.div>
+        {/* Value pills */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          transition={{ delay: 0.25 }}
+          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px' }}
+        >
+          {VALUE_PILLS.map((pill) => (
+            <span
+              key={pill}
+              style={{
+                border: '0.5px solid var(--color-graphite)',
+                padding: '8px 20px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '12px',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--color-sand)',
+              }}
+            >
+              {pill}
+            </span>
+          ))}
         </motion.div>
       </div>
     </section>

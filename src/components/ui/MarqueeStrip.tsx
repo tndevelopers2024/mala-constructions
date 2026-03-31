@@ -1,29 +1,48 @@
 'use client'
 
+const MARQUEE_TEXT =
+  'RESIDENTIAL · COMMERCIAL · RENOVATION · SINCE 1999 · KOLATHUR · CHENNAI · '
+
 export default function MarqueeStrip() {
-  const text = 'RESIDENTIAL \u00B7 COMMERCIAL \u00B7 RENOVATION \u00B7 SINCE 1999 \u00B7 KOLATHUR \u00B7 CHENNAI \u00B7 '
+  const repeated = MARQUEE_TEXT.repeat(8)
 
   return (
     <div
-      className="w-full overflow-hidden py-5"
-      style={{ backgroundColor: 'var(--color-ink)', borderTop: '1px solid var(--color-graphite)', borderBottom: '1px solid var(--color-graphite)' }}
+      style={{
+        backgroundColor: 'var(--color-ink)',
+        borderTop: '1px solid var(--color-graphite)',
+        borderBottom: '1px solid var(--color-graphite)',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        paddingTop: '14px',
+        paddingBottom: '14px',
+      }}
     >
-      <div className="animate-marquee flex whitespace-nowrap" style={{ width: 'max-content' }}>
-        {Array.from({ length: 12 }).map((_, i) => (
-          <span
-            key={i}
-            className="mx-4"
-            style={{
-              fontFamily: 'var(--font-dm-sans), sans-serif',
-              fontSize: '11px',
-              letterSpacing: '0.08em',
-              color: 'var(--color-ash)',
-              textTransform: 'uppercase',
-            }}
-          >
-            {text}
-          </span>
-        ))}
+      <div className="animate-marquee" style={{ display: 'inline-block' }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '11px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--color-ash)',
+            fontWeight: 400,
+          }}
+        >
+          {repeated}
+        </span>
+        <span
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '11px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--color-ash)',
+            fontWeight: 400,
+          }}
+        >
+          {repeated}
+        </span>
       </div>
     </div>
   )

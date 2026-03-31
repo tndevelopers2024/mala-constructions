@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
@@ -6,15 +6,11 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'picsum.photos',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'fastly.picsum.photos',
+        port: '',
         pathname: '/**',
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

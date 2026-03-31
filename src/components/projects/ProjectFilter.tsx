@@ -1,50 +1,63 @@
 'use client'
 
-import { motion } from 'framer-motion'
+type FilterKey = 'all' | 'completed' | 'ongoing' | 'flagship' | 'villa' | 'apartment' | 'commercial'
 
-type FilterValue = 'all' | 'completed' | 'ongoing' | 'villa' | 'commercial' | 'apartment'
+const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'completed', label: 'Completed' },
+  { key: 'ongoing', label: 'Ongoing' },
+  { key: 'flagship', label: 'Flagship' },
+  { key: 'villa', label: 'Villa' },
+  { key: 'apartment', label: 'Apartment' },
+  { key: 'commercial', label: 'Commercial' },
+]
 
 interface ProjectFilterProps {
-  active: FilterValue
-  onChange: (value: FilterValue) => void
+  active: FilterKey
+  onChange: (key: FilterKey) => void
 }
-
-const filters: { label: string; value: FilterValue }[] = [
-  { label: 'All', value: 'all' },
-  { label: 'Completed', value: 'completed' },
-  { label: 'Ongoing', value: 'ongoing' },
-  { label: 'Villa', value: 'villa' },
-  { label: 'Commercial', value: 'commercial' },
-  { label: 'Apartment', value: 'apartment' },
-]
 
 export default function ProjectFilter({ active, onChange }: ProjectFilterProps) {
   return (
-    <div className="flex flex-wrap gap-1 md:gap-0">
-      {filters.map((filter) => (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '0',
+        marginBottom: '3rem',
+        borderBottom: '1px solid var(--color-graphite)',
+      }}
+    >
+      {FILTERS.map((f) => (
         <button
-          key={filter.value}
-          onClick={() => onChange(filter.value)}
-          className="relative px-4 py-2.5 transition-colors duration-300"
+          key={f.key}
+          onClick={() => onChange(f.key)}
           style={{
-            fontFamily: 'var(--font-dm-sans), sans-serif',
+            background: 'none',
+            border: 'none',
+            borderBottom: active === f.key ? '1px solid var(--color-gold)' : '1px solid transparent',
+            marginBottom: '-1px',
+            padding: '12px 20px',
+            fontFamily: 'var(--font-body)',
             fontSize: '11px',
-            letterSpacing: '0.08em',
+            letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: active === filter.value ? 'var(--color-gold)' : 'var(--color-ash)',
+            color: active === f.key ? 'var(--color-gold)' : 'var(--color-ash)',
+            cursor: 'none',
+            transition: 'color 0.25s, border-color 0.25s',
+          }}
+          onMouseEnter={(e) => {
+            if (active !== f.key) e.currentTarget.style.color = 'var(--color-white)'
+          }}
+          onMouseLeave={(e) => {
+            if (active !== f.key) e.currentTarget.style.color = 'var(--color-ash)'
           }}
         >
-          {filter.label}
-          {active === filter.value && (
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 h-[1px]"
-              style={{ backgroundColor: 'var(--color-gold)' }}
-              layoutId="filter-indicator"
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            />
-          )}
+          {f.label}
         </button>
       ))}
     </div>
   )
 }
+
+export type { FilterKey }

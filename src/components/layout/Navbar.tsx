@@ -4,22 +4,21 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
 import MalaLogo from '@/components/ui/MalaLogo'
 import EnquiryModal from '@/components/ui/EnquiryModal'
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/services', label: 'Services' },
-  { href: '/stay', label: 'Stay' },
-  { href: '/contact', label: 'Contact' },
+const NAV_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Services', href: '/services' },
+  { label: 'Stay', href: '/stay' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [enquiryOpen, setEnquiryOpen] = useState(false)
   const pathname = usePathname()
 
@@ -30,158 +29,246 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    setMobileOpen(false)
+    setMenuOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
 
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
         style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          padding: '0 1.5rem',
+          height: '72px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
           backgroundColor: scrolled ? 'rgba(14,14,14,0.94)' : 'transparent',
           backdropFilter: scrolled ? 'blur(8px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(8px)' : 'none',
+          transition: 'background-color 0.4s ease, backdrop-filter 0.4s ease',
+          borderBottom: scrolled ? '1px solid var(--color-graphite)' : '1px solid transparent',
         }}
       >
-        <div className="w-full px-6 md:px-12 lg:px-16">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" aria-label="Mala Constructions Home">
-              <MalaLogo size="sm" variant="light" />
-            </Link>
+        {/* Logo */}
+        <Link href="/" aria-label="Mala Constructions home">
+          <MalaLogo size="sm" />
+        </Link>
 
-            {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-0">
-              {navLinks.map((link, i) => (
-                <div key={link.href} className="flex items-center">
-                  <Link
-                    href={link.href}
-                    className="px-4 py-2 transition-colors duration-300"
-                    style={{
-                      fontFamily: 'var(--font-dm-sans), sans-serif',
-                      fontSize: '12px',
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      color: pathname === link.href ? 'var(--color-gold)' : 'var(--color-white)',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (pathname !== link.href) e.currentTarget.style.color = 'var(--color-gold-light)'
-                    }}
-                    onMouseLeave={(e) => {
-                      if (pathname !== link.href) e.currentTarget.style.color = 'var(--color-white)'
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                  {i < navLinks.length - 1 && (
-                    <span
-                      className="w-[3px] h-[3px] rounded-full flex-shrink-0"
-                      style={{ backgroundColor: 'var(--color-gold)' }}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+        {/* Desktop Nav Links */}
+        <div
+          className="desktop-nav"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0',
+          }}
+        >
+          {NAV_LINKS.map((link, i) => (
+            <span key={link.href} style={{ display: 'flex', alignItems: 'center' }}>
+              {i > 0 && (
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: '4px',
+                    height: '4px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--color-gold)',
+                    margin: '0 20px',
+                    opacity: 0.6,
+                  }}
+                />
+              )}
+              <Link
+                href={link.href}
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: pathname === link.href ? 'var(--color-gold)' : 'var(--color-white)',
+                  textDecoration: 'none',
+                  fontWeight: 400,
+                  transition: 'color 0.25s',
+                  opacity: 0.88,
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-gold)')}
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color =
+                    pathname === link.href ? 'var(--color-gold)' : 'var(--color-white)')
+                }
+              >
+                {link.label}
+              </Link>
+            </span>
+          ))}
+        </div>
 
-            {/* Desktop CTA */}
-            <button
-              onClick={() => setEnquiryOpen(true)}
-              className="hidden lg:block px-6 py-2.5 transition-all duration-300"
-              style={{
-                border: '1px solid var(--color-gold)',
-                backgroundColor: 'transparent',
-                fontFamily: 'var(--font-dm-sans), sans-serif',
-                fontSize: '12px',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--color-gold)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--color-gold)'
-                e.currentTarget.style.color = 'var(--color-obsidian)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent'
-                e.currentTarget.style.color = 'var(--color-gold)'
-              }}
-            >
-              Enquire
-            </button>
+        {/* Enquire CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <button
+            onClick={() => setEnquiryOpen(true)}
+            className="desktop-nav"
+            style={{
+              border: '1px solid var(--color-gold)',
+              background: 'transparent',
+              color: 'var(--color-gold)',
+              padding: '9px 20px',
+              fontFamily: 'var(--font-body)',
+              fontSize: '11px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              cursor: 'none',
+              transition: 'background 0.3s, color 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--color-gold)'
+              e.currentTarget.style.color = 'var(--color-obsidian)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.color = 'var(--color-gold)'
+            }}
+          >
+            Enquire
+          </button>
 
-            {/* Mobile Hamburger */}
-            <button
-              className="lg:hidden p-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              style={{ color: 'var(--color-white)' }}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          {/* Hamburger */}
+          <button
+            className="mobile-nav"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '5px',
+              padding: '4px',
+            }}
+          >
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                style={{
+                  display: 'block',
+                  width: i === 1 ? '20px' : '28px',
+                  height: '1.5px',
+                  backgroundColor: 'var(--color-white)',
+                  transition: 'all 0.3s',
+                  transformOrigin: 'center',
+                }}
+              />
+            ))}
+          </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Full Screen Overlay */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] flex flex-col items-center justify-center"
-            style={{ backgroundColor: 'var(--color-obsidian)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 999,
+              backgroundColor: 'var(--color-obsidian)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2.5rem',
+            }}
           >
-            <div className="flex flex-col items-center gap-8">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="block text-center transition-colors duration-300"
-                    style={{
-                      fontFamily: 'var(--font-cormorant), serif',
-                      fontSize: '32px',
-                      fontWeight: 300,
-                      color: pathname === link.href ? 'var(--color-gold)' : 'var(--color-white)',
-                    }}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.button
+            <button
+              onClick={() => setMenuOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '1.5rem',
+                right: '1.5rem',
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-ash)',
+                cursor: 'none',
+                fontFamily: 'var(--font-body)',
+                fontSize: '13px',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Close
+            </button>
+            {NAV_LINKS.map((link, i) => (
+              <motion.div
+                key={link.href}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
-                onClick={() => {
-                  setMobileOpen(false)
-                  setEnquiryOpen(true)
-                }}
-                className="mt-4 px-8 py-3 transition-all duration-300"
-                style={{
-                  border: '1px solid var(--color-gold)',
-                  backgroundColor: 'transparent',
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: '12px',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-gold)',
-                }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, delay: i * 0.1 }}
               >
-                Enquire Now
-              </motion.button>
-            </div>
+                <Link
+                  href={link.href}
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '36px',
+                    fontWeight: 300,
+                    color: 'var(--color-white)',
+                    textDecoration: 'none',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              onClick={() => { setEnquiryOpen(true); setMenuOpen(false) }}
+              style={{
+                border: '1px solid var(--color-gold)',
+                background: 'transparent',
+                color: 'var(--color-gold)',
+                padding: '12px 32px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '12px',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                cursor: 'none',
+                marginTop: '1rem',
+              }}
+            >
+              Enquire Now
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <EnquiryModal isOpen={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
+      <EnquiryModal open={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
+
+      <style>{`
+        @media (min-width: 900px) {
+          .mobile-nav { display: none !important; }
+          .desktop-nav { display: flex !important; }
+        }
+        @media (max-width: 899px) {
+          .desktop-nav { display: none !important; }
+          .mobile-nav { display: flex !important; }
+        }
+      `}</style>
     </>
   )
 }

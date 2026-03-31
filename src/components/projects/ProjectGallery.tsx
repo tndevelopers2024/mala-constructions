@@ -4,62 +4,67 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
-import { getPlaceholderImage } from '@/lib/utils'
 
 interface ProjectGalleryProps {
   images: string[]
-  projectSlug: string
+  title: string
 }
 
-export default function ProjectGallery({ images, projectSlug }: ProjectGalleryProps) {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [lightboxIndex, setLightboxIndex] = useState(0)
+export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
+  const [open, setOpen] = useState(false)
+  const [index, setIndex] = useState(0)
 
-  const galleryImages = images.length > 0
-    ? images.map((src, i) => ({
-        src: getPlaceholderImage(`${projectSlug}-gallery-${i}`, 1200, 800),
-        alt: `${projectSlug} gallery image ${i + 1}`,
-      }))
-    : [
-        {
-          src: getPlaceholderImage(projectSlug, 1200, 800),
-          alt: `${projectSlug} cover image`,
-        },
-      ]
+  if (!images.length) return null
+
+  const slides = images.map((src) => ({ src }))
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {galleryImages.map((img, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setLightboxIndex(i)
-              setLightboxOpen(true)
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '1.5rem',
+          marginTop: '2rem',
+        }}
+      >
+        {images.map((src, i) => (
+          <div
+            key={src}
+            onClick={() => { setIndex(i); setOpen(true) }}
+            style={{
+              position: 'relative',
+              aspectRatio: '4/3',
+              cursor: 'none',
+              overflow: 'hidden',
             }}
-            className="relative overflow-hidden group"
-            style={{ aspectRatio: '4/3' }}
           >
             <Image
-              src={img.src}
-              alt={img.alt}
+              src={src}
+              alt={`${title} — gallery image ${i + 1}`}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 50vw, 25vw"
+              style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div
-              className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-              style={{ backgroundColor: 'rgba(201, 168, 112, 0.15)' }}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundColor: 'rgba(14,14,14,0)',
+                transition: 'background-color 0.3s',
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(14,14,14,0.3)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(14,14,14,0)')}
             />
-          </button>
+          </div>
         ))}
       </div>
 
       <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        index={lightboxIndex}
-        slides={galleryImages.map((img) => ({ src: img.src }))}
+        open={open}
+        close={() => setOpen(false)}
+        slides={slides}
+        index={index}
       />
     </>
   )

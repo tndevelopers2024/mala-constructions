@@ -10,87 +10,112 @@ import { fadeUp } from '@/lib/animations'
 
 export default function AboutTeaser() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-32 lg:py-40"
-      style={{ backgroundColor: 'var(--color-cream)' }}
+      style={{
+        backgroundColor: 'var(--color-cream)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+      className="section-padding"
     >
-      <div className="max-w-[1320px] mx-auto px-6 md:px-12 relative">
-        <SectionNumber number="01" className="-top-8 -left-2 md:left-0" />
+      <SectionNumber number="01" light />
 
-        <div className="relative z-10">
-          <GoldRule className="mb-4" />
-          <span
-            className="block mb-8"
-            style={{
-              fontFamily: 'var(--font-dm-sans), sans-serif',
-              fontSize: '11px',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--color-ash)',
-            }}
-          >
-            Our Story
-          </span>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left — Headline */}
+      <div className="max-content">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '4rem',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1.5rem' }}>
+              <GoldRule />
+              <span
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '11px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-ash)',
+                }}
+              >
+                Our Story
+              </span>
+            </div>
             <AnimatedHeading
               text="Built on Integrity. Crafted with Precision."
-              className="leading-[1.15]"
+              as="h2"
               style={{
+                fontFamily: 'var(--font-display)',
                 fontSize: 'var(--text-hero)',
-                color: 'var(--color-obsidian)',
+                fontWeight: 300,
+                color: 'var(--color-ink)',
+                lineHeight: 1.15,
               }}
             />
+          </div>
 
-            {/* Right — Copy */}
-            <motion.div
-              className="space-y-5"
+          {/* Right */}
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <motion.p
               variants={fadeUp}
               initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              animate={inView ? 'visible' : 'hidden'}
+              transition={{ delay: 0.15 }}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '15px',
+                color: 'var(--color-graphite)',
+                lineHeight: 1.8,
+                marginBottom: '1.25rem',
+              }}
             >
-              <p
-                style={{
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: '16px',
-                  lineHeight: 1.75,
-                  color: 'var(--color-obsidian)',
-                  opacity: 0.8,
-                }}
-              >
-                Founded in 1989 as a trusted electrical company, Mala expanded into
-                construction in 1999. For over two decades, we have delivered more than
-                100 residential buildings, 50 villas, and 25 commercial outlets across
-                Chennai.
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: '16px',
-                  lineHeight: 1.75,
-                  color: 'var(--color-obsidian)',
-                  opacity: 0.8,
-                }}
-              >
-                Our approach is simple: we treat every project — regardless of scale —
-                with the same commitment to quality, precision, and the client&apos;s vision.
-              </p>
+              Founded in 1989 as a trusted electrical company, Mala expanded into construction in 1999. For over two decades, we have delivered more than 100 residential buildings, 50 villas, and 25 commercial outlets across Chennai.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              transition={{ delay: 0.28 }}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '15px',
+                color: 'var(--color-graphite)',
+                lineHeight: 1.8,
+                marginBottom: '2rem',
+              }}
+            >
+              Our approach is simple: we treat every project — regardless of scale — with the same commitment to quality, precision, and the client's vision.
+            </motion.p>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              transition={{ delay: 0.38 }}
+            >
               <Link
                 href="/about"
-                className="inline-block mt-2 transition-all duration-300"
                 style={{
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
+                  fontFamily: 'var(--font-body)',
                   fontSize: '13px',
                   color: 'var(--color-gold)',
+                  textDecoration: 'none',
                   letterSpacing: '0.04em',
+                  borderBottom: '1px solid var(--color-gold)',
+                  paddingBottom: '2px',
+                  transition: 'opacity 0.25s',
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
-                Read our full story &rarr;
+                Read our full story →
               </Link>
             </motion.div>
           </div>

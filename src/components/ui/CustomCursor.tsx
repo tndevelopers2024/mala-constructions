@@ -1,83 +1,82 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
-  const [isHovering, setIsHovering] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const posRef = useRef({ x: 0, y: 0 })
-  const targetRef = useRef({ x: 0, y: 0 })
-  const rafRef = useRef<number>(0)
-
-  const animate = useCallback(() => {
-    const lerp = 0.15
-    posRef.current.x += (targetRef.current.x - posRef.current.x) * lerp
-    posRef.current.y += (targetRef.current.y - posRef.current.y) * lerp
-
-    if (cursorRef.current) {
-      cursorRef.current.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px) translate(-50%, -50%)`
-    }
-    rafRef.current = requestAnimationFrame(animate)
-  }, [])
+  const [hovered, setHovered] = useState(false)
+  const pos = useRef({ x: -100, y: -100 })
+  const current = useRef({ x: -100, y: -100 })
+  const raf = useRef<number>(0)
 
   useEffect(() => {
-    // Only show on pointer:fine devices
-    if (window.matchMedia('(pointer: coarse)').matches) return
+    const isTouchDevice = window.matchMedia('(hover: none)').matches
+    if (isTouchDevice) return
 
-    const onMouseMove = (e: MouseEvent) => {
-      targetRef.current = { x: e.clientX, y: e.clientY }
-      if (!isVisible) setIsVisible(true)
+    const move = (e: MouseEvent) => {
+      pos.current = { x: e.clientX, y: e.clientY }
     }
 
-    const onMouseEnter = () => setIsVisible(true)
-    const onMouseLeave = () => setIsVisible(false)
-
-    const handleHoverElements = () => {
-      const hoverables = document.querySelectorAll('a, button, [role="button"], input, textarea, select, label')
-      hoverables.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsHovering(true))
-        el.addEventListener('mouseleave', () => setIsHovering(false))
-      })
+    const onEnter = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (target.closest('a, button, [data-cursor-hover]')) {
+        setHovered(true)
+      }
     }
 
-    window.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mouseenter', onMouseEnter)
-    document.addEventListener('mouseleave', onMouseLeave)
+    const onLeave = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (target.closest('a, button, [data-cursor-hover]')) {
+        setHovered(false)
+      }
+    }
 
-    handleHoverElements()
-    rafRef.current = requestAnimationFrame(animate)
+    window.addEventListener('mousemove', move)
+    window.addEventListener('mouseover', onEnter)
+    window.addEventListener('mouseout', onLeave)
 
-    // Re-check for new hoverable elements periodically
-    const observer = new MutationObserver(handleHoverElements)
-    observer.observe(document.body, { childList: true, subtree: true })
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t
+
+    const animate = () => {
+      current.current.x = lerp(current.current.x, pos.current.x, 0.12)
+      current.current.y = lerp(current.current.y, pos.current.y, 0.12)
+
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${current.current.x}px, ${current.current.y}px)`
+      }
+
+      raf.current = requestAnimationFrame(animate)
+    }
+
+    raf.current = requestAnimationFrame(animate)
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mouseenter', onMouseEnter)
-      document.removeEventListener('mouseleave', onMouseLeave)
-      cancelAnimationFrame(rafRef.current)
-      observer.disconnect()
+      window.removeEventListener('mousemove', move)
+      window.removeEventListener('mouseover', onEnter)
+      window.removeEventListener('mouseout', onLeave)
+      cancelAnimationFrame(raf.current)
     }
-  }, [animate, isVisible])
-
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
-    return null
-  }
+  }, [])
 
   return (
     <div
       ref={cursorRef}
-      className="custom-cursor fixed top-0 left-0 pointer-events-none z-[10000]"
+      aria-hidden="true"
       style={{
-        width: isHovering ? 40 : 10,
-        height: isHovering ? 40 : 10,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 99998,
+        pointerEvents: 'none',
+        willChange: 'transform',
+        width: hovered ? '40px' : '10px',
+        height: hovered ? '40px' : '10px',
+        marginLeft: hovered ? '-20px' : '-5px',
+        marginTop: hovered ? '-20px' : '-5px',
         borderRadius: '50%',
-        backgroundColor: isHovering ? 'transparent' : 'var(--color-gold)',
-        border: isHovering ? '1.5px solid var(--color-gold)' : 'none',
-        transition: 'width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border 0.25s ease',
-        opacity: isVisible ? 1 : 0,
-        mixBlendMode: 'difference',
+        backgroundColor: hovered ? 'transparent' : 'var(--color-gold)',
+        border: hovered ? '1.5px solid var(--color-gold)' : 'none',
+        transition: 'width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease',
       }}
     />
   )

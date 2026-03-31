@@ -6,21 +6,25 @@ import { lineGrow } from '@/lib/animations'
 
 interface GoldRuleProps {
   className?: string
-  width?: number
 }
 
-export default function GoldRule({ className = '', width = 60 }: GoldRuleProps) {
+export default function GoldRule({ className = '' }: GoldRuleProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
     <motion.div
       ref={ref}
-      className={className}
-      style={{ width, height: 1, backgroundColor: 'var(--color-gold)', transformOrigin: 'left' }}
       variants={lineGrow}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={inView ? 'visible' : 'hidden'}
+      style={{
+        width: '60px',
+        height: '1px',
+        backgroundColor: 'var(--color-gold)',
+        transformOrigin: 'left',
+      }}
+      className={className}
     />
   )
 }

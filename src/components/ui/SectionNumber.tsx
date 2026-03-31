@@ -1,21 +1,29 @@
+'use client'
+
 interface SectionNumberProps {
   number: string
-  className?: string
+  light?: boolean
 }
 
-export default function SectionNumber({ number, className = '' }: SectionNumberProps) {
+export default function SectionNumber({ number, light = false }: SectionNumberProps) {
   return (
     <span
-      className={`absolute select-none pointer-events-none ${className}`}
+      aria-hidden="true"
       style={{
-        fontFamily: 'var(--font-cormorant), serif',
+        position: 'absolute',
+        fontFamily: 'var(--font-display)',
         fontSize: '180px',
         fontWeight: 300,
-        color: 'var(--color-graphite)',
+        color: light ? '#2C2A28' : 'var(--color-graphite)',
+        opacity: light ? 0.15 : 1,
         lineHeight: 1,
-        opacity: 0.5,
+        userSelect: 'none',
+        pointerEvents: 'none',
+        top: '-20px',
+        right: '1.5rem',
+        zIndex: 0,
+        letterSpacing: '-0.04em',
       }}
-      aria-hidden="true"
     >
       {number}
     </span>

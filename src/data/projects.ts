@@ -22,7 +22,7 @@ export const projects: Project[] = [
     location: 'Madhavaram, Chennai',
     type: 'commercial',
     status: 'completed',
-    coverImage: '/images/projects/everest-bakery.jpg',
+    coverImage: 'https://picsum.photos/seed/everest-bakery/800/600',
     gallery: [],
   },
   {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     location: 'Perambur, Chennai',
     type: 'commercial',
     status: 'completed',
-    coverImage: '/images/projects/poorvika-mobiles.jpg',
+    coverImage: 'https://picsum.photos/seed/poorvika-mobiles/800/600',
     gallery: [],
   },
   {
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     location: 'Mannivakkam, Chennai',
     type: 'villa',
     status: 'completed',
-    coverImage: '/images/projects/gopi-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/gopi-residence/800/600',
     gallery: [],
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     location: 'Mathur, Chennai',
     type: 'villa',
     status: 'completed',
-    coverImage: '/images/projects/premadas-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/premadas-residence/800/600',
     gallery: [],
   },
   {
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     location: 'Kolathur, Chennai',
     type: 'villa',
     status: 'completed',
-    coverImage: '/images/projects/veni-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/veni-residence/800/600',
     gallery: [],
   },
   {
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     location: 'Poompuhar Nagar, Chennai',
     type: 'villa',
     status: 'completed',
-    coverImage: '/images/projects/prabin-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/prabin-residence/800/600',
     gallery: [],
   },
   // ONGOING
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     location: 'West Mambalam, Chennai',
     type: 'villa',
     status: 'ongoing',
-    coverImage: '/images/projects/lathika-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/lathika-residence/800/600',
     gallery: [],
   },
   {
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     location: 'Annapoorna Nagar, Chennai',
     type: 'apartment',
     status: 'ongoing',
-    coverImage: '/images/projects/thomas-apartments.jpg',
+    coverImage: 'https://picsum.photos/seed/thomas-apartments/800/600',
     gallery: [],
   },
   {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     location: 'Poombukar Nagar, Chennai',
     type: 'villa',
     status: 'ongoing',
-    coverImage: '/images/projects/vasudevan-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/vasudevan-residence/800/600',
     gallery: [],
   },
   {
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     location: 'Vadaperumbakkam, Chennai',
     type: 'villa',
     status: 'ongoing',
-    coverImage: '/images/projects/samuel-sathish-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/samuel-sathish-residence/800/600',
     gallery: [],
   },
   {
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     location: 'Tiruvottriyur, Chennai',
     type: 'villa',
     status: 'ongoing',
-    coverImage: '/images/projects/krishna-menon-residence.jpg',
+    coverImage: 'https://picsum.photos/seed/krishna-menon-residence/800/600',
     gallery: [],
   },
   // FLAGSHIP
@@ -134,12 +134,12 @@ export const projects: Project[] = [
     location: 'Haridoss Nagar 1st Main Road, Kolathur, Chennai',
     type: 'apartment',
     status: 'flagship',
-    coverImage: '/images/projects/malas-sapphire.jpg',
+    coverImage: 'https://picsum.photos/seed/malas-sapphire/800/600',
     gallery: [
-      '/images/sapphire/exterior-1.jpg',
-      '/images/sapphire/exterior-2.jpg',
-      '/images/sapphire/floor-plan.jpg',
-      '/images/sapphire/ground-plan.jpg',
+      'https://picsum.photos/seed/sapphire-exterior-1/1200/800',
+      'https://picsum.photos/seed/sapphire-exterior-2/1200/800',
+      'https://picsum.photos/seed/sapphire-floor-plan/1200/800',
+      'https://picsum.photos/seed/sapphire-ground-plan/1200/800',
     ],
     description:
       "Mala's Signature Sapphire — 6 premium East-facing 3BHK boutique residences in Kolathur.",

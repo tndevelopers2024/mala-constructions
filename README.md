@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mala Constructions — Production Website
+
+Premium Next.js 15 website for Mala Constructions, Chennai.  
+Built with a luxury dark editorial aesthetic — Cormorant Garamond + DM Sans, gold accents, grain overlay, Framer Motion animations.
+
+---
+
+## Tech Stack
+
+| Layer | Library |
+|-------|---------|
+| Framework | Next.js 15 (App Router, TypeScript) |
+| Styling | Tailwind CSS v4 + CSS custom properties |
+| Animation | Framer Motion 11 |
+| Forms | react-hook-form + zod |
+| Gallery | yet-another-react-lightbox |
+| Icons | Lucide React |
+| Email | Nodemailer (SMTP) |
+| Images | next/image (Picsum placeholders — swap for real photos) |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure environment
+
+```bash
+cp .env.example .env.local
+# Edit .env.local with your Gmail App Password
+```
+
+**Gmail App Password setup:**  
+Google Account → Security → 2-Step Verification → App Passwords → Create one for "Mail"
+
+### 3. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Replacing Placeholder Images
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All images currently use `picsum.photos` seeds. Replace with real photos by:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Place images in `/public/images/`
+2. Update `src` props in each component — e.g. `hero-bg.jpg`, `projects/gopi-residence.jpg`
+3. Remove the `picsum.photos` entry from `next.config.ts` remotePatterns
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — Hero, About teaser, Services, All 12 Projects, Sapphire spotlight, At The Top, Vision |
+| `/about` | Company story, timeline (1989–2024), services overview |
+| `/projects` | All 12 projects with filter (type + status) |
+| `/projects/[slug]` | Individual project detail. Sapphire has accordion specs, floor plans, map, sticky enquiry form |
+| `/services` | All 5 services — alternating image/text layout |
+| `/stay` | At The Top penthouse — amenities grid, gallery, booking CTA |
+| `/contact` | Address card + enquiry form + Google Maps embed |
+
+---
+
+## Contact Form
+
+`POST /api/enquiry` accepts `{ name, phone, email, message?, project? }`.  
+Validated with Zod. Sends HTML email via Nodemailer.  
+In dev (no SMTP creds), logs payload to console instead of sending.
+
+---
+
+## Design System
+
+All design tokens are CSS custom properties in `src/styles/globals.css`:
+
+```css
+--color-obsidian: #0E0E0E   /* primary bg */
+--color-ink:      #1A1818   /* card surfaces */
+--color-gold:     #C9A870   /* primary accent */
+--color-cream:    #F5F0E8   /* light sections */
+--color-white:    #FAFAF8   /* text on dark */
+```
+
+---
+
+## Deployment
+
+Deploy on [Vercel](https://vercel.com) — zero config for Next.js.  
+Add environment variables in Vercel Dashboard → Project Settings → Environment Variables.
+
+```bash
+vercel --prod
+```
+
+---
+
+## Contact
+
+**Mala Constructions**  
+6, Shanthi Nagar, 1st Main Road, Kolathur, Chennai – 600 099  
+📞 9840264993 / 9789931141  
+✉️ malaconstructionschennai@gmail.com
