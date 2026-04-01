@@ -5,56 +5,60 @@ export interface Project {
   type: "Residential" | "Commercial";
   status: "completed" | "ongoing";
   gradient: string;
+  image: string;
+  description: string;
 }
 
 export const completedProjects: Project[] = [
   {
-    id: "everest-bakery",
-    title: "Ms. Everest Bakery",
-    location: "Madhavaram",
-    type: "Commercial",
-    status: "completed",
-    gradient: "from-amber-800 to-amber-600",
-  },
-  {
-    id: "poorvika-mobiles",
-    title: "Ms. Poorvika Mobiles",
-    location: "Perambur",
-    type: "Commercial",
-    status: "completed",
-    gradient: "from-slate-700 to-slate-500",
-  },
-  {
     id: "gopi-residence",
     title: "Mr. Gopi Residence",
-    location: "Mannivakkam",
+    location: "Mannivakkam, Chennai",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-amber-800 to-amber-600",
+    image: "/images/projects/gopi-residence.jpg",
+    description: "Premium residential villa with modern architecture",
+  },
+  {
+    id: "luke-thomas-residence",
+    title: "Mr. Luke Thomas Residence",
+    location: "Perambur, Chennai",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-slate-700 to-slate-500",
+    image: "/images/projects/luke-thomas-residence.jpg",
+    description: "Contemporary home with elegant design",
+  },
+  {
+    id: "madhu-residence",
+    title: "Mr. Madhu Residence",
+    location: "Madhavaram, Chennai",
     type: "Residential",
     status: "completed",
     gradient: "from-stone-700 to-stone-500",
-  },
-  {
-    id: "premadas-residence",
-    title: "Mr. Premadas Residence",
-    location: "Mathur",
-    type: "Residential",
-    status: "completed",
-    gradient: "from-zinc-700 to-zinc-500",
-  },
-  {
-    id: "veni-residence",
-    title: "Mrs. Veni Residence",
-    location: "Kolathur",
-    type: "Residential",
-    status: "completed",
-    gradient: "from-neutral-700 to-neutral-500",
+    image: "/images/projects/madhu-residence.jpg",
+    description: "Modern residential construction with quality finishes",
   },
   {
     id: "prabin-residence",
     title: "Mr. Prabin Residence",
-    location: "Poompuhar Nagar",
+    location: "Poombuhar Nagar, Chennai",
     type: "Residential",
     status: "completed",
-    gradient: "from-gray-700 to-gray-500",
+    gradient: "from-zinc-700 to-zinc-500",
+    image: "/images/projects/prabin-residence.jpg",
+    description: "Luxury villa with contemporary amenities",
+  },
+  {
+    id: "veni-residence",
+    title: "Mrs. Veni Residence",
+    location: "Senthil Nagar, Chennai",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-neutral-700 to-neutral-500",
+    image: "/images/projects/veni-residence.jpg",
+    description: "Elegant residential home with modern design",
   },
 ];
 
@@ -66,6 +70,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-emerald-800 to-emerald-600",
+    image: "",
+    description: "",
   },
   {
     id: "thomas-apartments",
@@ -74,6 +80,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-teal-800 to-teal-600",
+    image: "",
+    description: "",
   },
   {
     id: "vasudevan-residence",
@@ -82,6 +90,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-cyan-800 to-cyan-600",
+    image: "",
+    description: "",
   },
   {
     id: "samuel-sathish-residence",
@@ -90,6 +100,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-sky-800 to-sky-600",
+    image: "",
+    description: "",
   },
   {
     id: "krishna-menon-residence",
@@ -98,6 +110,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-indigo-800 to-indigo-600",
+    image: "",
+    description: "",
   },
   {
     id: "malas-legacy",
@@ -106,6 +120,8 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-violet-800 to-violet-600",
+    image: "",
+    description: "",
   },
 ];
 
