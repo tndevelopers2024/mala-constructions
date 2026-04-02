@@ -11,7 +11,7 @@ export const CONTACT = {
   phones: ["9840264993", "9789931141"],
   email: "malaconstructionschennai@gmail.com",
   website: "malaconstructions.com",
-  mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0!2d80.22!3d13.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA3JzEyLjAiTiA4MMKwMTMnMTIuMCJF!5e0!3m2!1sen!2sin!4v1",
+  mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.6424911765476!2d80.2016335!3d13.1218567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52646399999999%3A0x1d440d9999999999!2s6%2C%20Shanthi%20Nagar%2C%201st%20Main%20Rd%2C%20Kolathur%2C%20Chennai%2C%20Tamil%20Nadu%20600099!5e0!3m2!1sen!2sin!4v1712061000000!5m2!1sen!2sin",
 } as const;
 
 export const NAV_LINKS = [

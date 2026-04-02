@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 bg-white flex flex-col h-full"
     >
       {/* Project Image */}
-      <div className={`relative h-64 w-full bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+      <div className={`relative h-80 w-full bg-gradient-to-br ${project.gradient} overflow-hidden`}>
         {project.image ? (
           <Image
             src={project.image}

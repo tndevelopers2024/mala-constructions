@@ -1,24 +1,26 @@
 import HeroSlider from "@/components/HeroSlider";
+import MarqueeBanner from "@/components/MarqueeBanner";
 import StatsBar from "@/components/StatsBar";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import { services } from "@/data/services";
-import { completedProjects } from "@/data/projects";
+import { allProjects } from "@/data/projects";
+import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
-import ContactForm from "./contact/ContactForm";
+import ContactForm from "./contactt/ContactForm";
 import { CONTACT } from "@/lib/constants";
 
 export default function HomePage() {
-  const featuredProjects = completedProjects.slice(0, 3);
+  const featuredProjects = allProjects.slice(0, 6);
 
   return (
     <>
       {/* Hero Slider */}
       <HeroSlider />
 
-      {/* Stats Bar */}
-      <StatsBar />
+      {/* Marquee Strap */}
+      <MarqueeBanner />
 
       {/* Services Overview */}
       <section className="section-padding bg-warm-white">
@@ -34,6 +36,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Stats Bar */}
+      <StatsBar />
 
       {/* Featured Projects */}
       <section className="section-padding bg-gray-50">
@@ -61,7 +66,9 @@ export default function HomePage() {
         </div>
       </section>
 
-            {/* Contact CTA Banner */}
+
+
+      {/* Contact CTA Banner */}
       <section className="py-20 bg-warm-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-4">
@@ -220,16 +227,20 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="rounded-xl overflow-hidden border border-gray-100 h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="w-12 h-12 text-soft-grey/40 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <p className="text-soft-grey/60 text-sm">Google Map</p>
-                  <p className="text-soft-grey/40 text-xs mt-1">Kolathur, Chennai</p>
-                </div>
+              {/* Google Map Embed */}
+              <div className="rounded-xl overflow-hidden border border-gray-100 h-64 shadow-sm relative group">
+                <iframe
+                  title="Mala Constructions Location"
+                  src={CONTACT.mapUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
+                <div className="absolute inset-0 pointer-events-none border-[6px] border-white/10 rounded-xl" />
               </div>
             </div>
 
@@ -245,9 +256,14 @@ export default function HomePage() {
                 <ContactForm />
               </div>
             </div>
+
+
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
     </>
   );
 }

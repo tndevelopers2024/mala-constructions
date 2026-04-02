@@ -31,18 +31,17 @@ export default function FloatingButtons() {
   const whatsappUrl = `https://wa.me/91${primaryPhone}`; // Assuming Indian numbers
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+    <div
+      className={`fixed bottom-6 right-6 z-50 flex flex-col gap-4 transition-all duration-500 ease-in-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+      }`}
+    >
       {/* Scroll to top button */}
-      <div
-        className={`transition-all duration-300 ease-in-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
-        }`}
+      <button
+        onClick={scrollToTop}
+        className="w-12 h-12 bg-charcoal text-white rounded-full flex items-center justify-center shadow-lg hover:bg-gold hover:text-charcoal transition-colors border border-gray-700/50"
+        aria-label="Scroll to top"
       >
-        <button
-          onClick={scrollToTop}
-          className="w-12 h-12 bg-charcoal text-white rounded-full flex items-center justify-center shadow-lg hover:bg-gold hover:text-charcoal transition-colors border border-gray-700/50"
-          aria-label="Scroll to top"
-        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -53,8 +52,7 @@ export default function FloatingButtons() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
           </svg>
-        </button>
-      </div>
+      </button>
 
       {/* Call Button */}
       <a

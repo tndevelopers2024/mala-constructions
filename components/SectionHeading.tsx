@@ -24,9 +24,8 @@ export default function SectionHeading({
       className={`mb-12 md:mb-16 ${center ? "text-center" : ""}`}
     >
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 ${
-          light ? "text-warm-white" : "text-charcoal"
-        }`}
+        className={`text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 ${light ? "text-warm-white" : "text-charcoal"
+          }`}
       >
         {title}
       </h2>
@@ -39,9 +38,8 @@ export default function SectionHeading({
       </div>
       {subtitle && (
         <p
-          className={`text-base md:text-lg max-w-2xl ${center ? "mx-auto" : ""} ${
-            light ? "text-warm-white/70" : "text-soft-grey"
-          }`}
+          className={`text-base md:text-lg max-w-2xl ${center ? "mx-auto" : ""} ${light ? "text-warm-white/70" : "text-soft-grey"
+            }`}
         >
           {subtitle}
         </p>
