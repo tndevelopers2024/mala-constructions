@@ -10,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
 import ContactForm from "./contactt/ContactForm";
 import { CONTACT } from "@/lib/constants";
+import ProjectGallery from "@/components/ProjectGallery";
 
 export default function HomePage() {
   const featuredProjects = allProjects.slice(0, 6);
@@ -66,7 +67,8 @@ export default function HomePage() {
         </div>
       </section>
 
-
+      {/* Full Project Gallery */}
+      <ProjectGallery />
 
       {/* Contact CTA Banner */}
       <section className="py-20 bg-warm-white">
