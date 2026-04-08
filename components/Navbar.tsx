@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
@@ -33,20 +34,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                className="transition-transform duration-300 group-hover:scale-110"
-              >
-                <rect x="4" y="16" width="6" height="20" fill="#c9a84c" opacity="0.8" />
-                <rect x="12" y="8" width="6" height="28" fill="#c9a84c" />
-                <rect x="20" y="12" width="6" height="24" fill="#c9a84c" opacity="0.9" />
-                <rect x="28" y="4" width="6" height="32" fill="#c9a84c" opacity="0.7" />
-                <rect x="2" y="36" width="36" height="2" fill="#c9a84c" />
-              </svg>
+            <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
+              <Image 
+                src="/images/logo/logo.png"
+                alt="MALA Constructions"
+                fill
+                className="object-contain brightness-0 invert"
+              />
             </div>
             <div>
               <span className="text-2xl font-serif font-bold text-warm-white tracking-wider">

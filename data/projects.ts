@@ -70,9 +70,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-emerald-800 to-emerald-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/LATHIKA RESIDENCE.png",
+    description: "Elegant residential project in the heart of West Mambalam",
   },
+
   {
     id: "thomas-apartments",
     title: "Mr. Thomas Apartments",
@@ -80,9 +81,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-teal-800 to-teal-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/Mr. THOMAS APARTMENTS.png",
+    description: "Modern apartment complex featuring contemporary amenities",
   },
+
   {
     id: "vasudevan-residence",
     title: "Mr. Vasudevan Residence",
@@ -90,9 +92,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-cyan-800 to-cyan-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/Mr. VASUDEVAN RESIDENCE.png",
+    description: "Custom-designed luxury residence with premium finishes",
   },
+
   {
     id: "samuel-sathish-residence",
     title: "Mr. Samuel Sathish Residence",
@@ -100,9 +103,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-sky-800 to-sky-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/Mr. SAMUEL SATHISH RESIDENCE.png",
+    description: "Modern residential villa featuring spacious interiors",
   },
+
   {
     id: "krishna-menon-residence",
     title: "Mr. Krishna Menon Residence",
@@ -110,9 +114,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-indigo-800 to-indigo-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/Mr. KRISHNA MENON RESIDENCE.png",
+    description: "Contemporary residential home at Tiruvottriyur",
   },
+
   {
     id: "malas-legacy",
     title: "Mrs. Mala's Legacy Residential Apartment",
@@ -120,9 +125,10 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-violet-800 to-violet-600",
-    image: "",
-    description: "",
+    image: "/images/on-going-projects/Mrs. MALA’S LEGACY.png",
+    description: "Flagship residential apartment complex in Kolathur",
   },
+
 ];
 
 export const allProjects = [...completedProjects, ...ongoingProjects];

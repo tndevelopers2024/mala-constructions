@@ -8,9 +8,11 @@ import { services } from "@/data/services";
 import { allProjects } from "@/data/projects";
 import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
-import ContactForm from "./contactt/ContactForm";
+import ContactForm from "./contact/ContactForm";
 import { CONTACT } from "@/lib/constants";
 import ProjectGallery from "@/components/ProjectGallery";
+import StayCarousel from "@/components/StayCarousel";
+
 
 export default function HomePage() {
   const featuredProjects = allProjects.slice(0, 6);
@@ -66,10 +68,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Full Project Gallery */}
-      <ProjectGallery />
-
       {/* Contact CTA Banner */}
       <section className="py-20 bg-warm-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -100,6 +98,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* At The Top - Luxury Stay Teaser */}
       <section className="relative py-24 md:py-32 overflow-hidden">
@@ -132,21 +131,21 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">✨</div>
-                    <p className="text-gold font-serif text-xl">Stay by Mala&apos;s</p>
-                    <p className="text-warm-white/50 text-sm mt-2">Premium Penthouse Experience</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] rounded-xl overflow-hidden border border-gold/20 flex items-center justify-center">
+                <StayCarousel />
               </div>
               {/* Decorative border */}
               <div className="absolute -inset-3 border border-gold/10 rounded-xl -z-10" />
             </div>
+
           </div>
         </div>
       </section>
+      {/* Full Project Gallery */}
+      <ProjectGallery />
+
+
+
 
 
 

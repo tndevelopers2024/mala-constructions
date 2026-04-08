@@ -1,27 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-warm-white/80">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 40 40"
-                fill="none"
-              >
-                <rect x="4" y="16" width="6" height="20" fill="#c9a84c" opacity="0.8" />
-                <rect x="12" y="8" width="6" height="28" fill="#c9a84c" />
-                <rect x="20" y="12" width="6" height="24" fill="#c9a84c" opacity="0.9" />
-                <rect x="28" y="4" width="6" height="32" fill="#c9a84c" opacity="0.7" />
-                <rect x="2" y="36" width="36" height="2" fill="#c9a84c" />
-              </svg>
+              <div className="relative w-12 h-12">
+                <Image 
+                  src="/images/logo/logo.png"
+                  alt="MALA Constructions"
+                  fill
+                  className="object-contain brightness-0 invert"
+                />
+              </div>
               <div>
                 <span className="text-xl font-serif font-bold text-warm-white tracking-wider">
                   MALA
@@ -124,7 +121,7 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-warm-white/40 text-sm">
-            © 2025 MALA Constructions. All rights reserved.
+            © {new Date().getFullYear()} MALA Constructions. All rights reserved.
           </p>
           <p className="text-warm-white/30 text-xs">
             Crafted with excellence in Chennai, India

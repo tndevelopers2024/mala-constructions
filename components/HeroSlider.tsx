@@ -18,7 +18,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1722606485644-fbb7b7885f3c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/client-images/Mala-construction-image-26.avif",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
     description: "Bespoke villas designed with a blend of modern aesthetics and functional elegance. Transforming your vision into reality since 1999.",
@@ -27,7 +27,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1697947656193-a87d460b5fb5?q=80&w=2712&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/client-images/Mala-construction-image-38.avif",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
     description: "State-of-the-art commercial spaces that inspire productivity and reflect brand identity. Building infrastructure that stands the test of time.",
@@ -36,7 +36,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1664711942326-2c3351e215e6?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/client-images/Mala-construction-image-22.avif",
     title: "Refined Interior Spaces",
     subtitle: "INTERIOR DESIGN & FIT-OUT",
     description: "Transforming interiors into immersive experiences through meticulous detail and premium finishes. Experience luxury in every corner.",

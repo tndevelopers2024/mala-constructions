@@ -18,12 +18,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://malaconstructions.com"),
   title: {
-    default: "MALA Constructions | Transforming Spaces Since 1999",
+    default: "MALA Constructions | Building Luxury & Trust Since 1999",
     template: "%s | MALA Constructions",
   },
   description:
-    "MALA Constructions – A legacy of innovation and customer satisfaction. Premium residential, commercial construction, renovation, and luxury stay services in Chennai.",
+    "MALA Constructions – A legacy of innovation and customer satisfaction. Premium residential, commercial construction, and luxury stay services in Chennai.",
   keywords: [
     "MALA Constructions",
     "construction company Chennai",
@@ -31,8 +32,37 @@ export const metadata: Metadata = {
     "commercial construction",
     "renovation Chennai",
     "luxury stay Chennai",
+    "Mala Construction Kolathur",
   ],
+  authors: [{ name: "MALA Constructions" }],
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://malaconstructions.com",
+    siteName: "MALA Constructions",
+    title: "MALA Constructions | Building Luxury & Trust",
+    description: "Experience premium construction and luxury living with Chennai's trusted builders since 1999.",
+    images: [
+      {
+        url: "/images/open-graph/open-graph.webp",
+        width: 1200,
+        height: 630,
+        alt: "MALA Constructions - Building Excellence",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MALA Constructions | Building Luxury & Trust",
+    description: "Premium residential and commercial construction in Chennai.",
+    images: ["/images/open-graph/open-graph.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 export default function RootLayout({
   children,
