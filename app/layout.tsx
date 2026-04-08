@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: "Experience premium construction and luxury living with Chennai's trusted builders since 1999.",
     images: [
       {
-        url: "/images/open-graph/open-graph.webp",
+        url: "https://mala-constructions.vercel.app/images/open-graph/open-graph.webp",
         width: 1200,
         height: 630,
         alt: "MALA Constructions - Building Excellence",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MALA Constructions | Building Luxury & Trust",
     description: "Premium residential and commercial construction in Chennai.",
-    images: ["/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
   },
   robots: {
     index: true,

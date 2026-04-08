@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "At The Top | Luxury Penthouse Stay in Chennai",
     description: "Discover a home away from home with premium amenities and panoramic city views.",
-    images: ["/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
   },
 };
 

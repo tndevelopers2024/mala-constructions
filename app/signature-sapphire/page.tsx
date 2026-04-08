@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Signature Sapphire | Luxury 3BHK Homes by Mala's",
     description: "Experience premium East-facing 3BHK homes in the heart of Kolathur. Modern amenities and architectural excellence.",
-    images: ["/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
   },
 };
 

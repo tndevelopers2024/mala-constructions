@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About MALA Constructions | Building Legacy Since 1999",
     description: "Discover the history and quality commitment of one of Chennai's most trusted builders.",
-    images: ["/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
   },
 };
 
