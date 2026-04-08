@@ -124,7 +124,7 @@ export default function Footer() {
             © {new Date().getFullYear()} MALA Constructions. All rights reserved.
           </p>
           <p className="text-warm-white/30 text-xs">
-            Crafted with excellence in Chennai, India
+            Chennai, India
           </p>
         </div>
       </div>

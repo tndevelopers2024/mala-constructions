@@ -197,7 +197,7 @@ export default function ContactForm() {
               animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
               exit={{ scale: 0.5, opacity: 0, y: 100 }}
               transition={{ type: "spring", damping: 15, stiffness: 100 }}
-              className="bg-warm-white rounded-3xl p-10 max-w-sm w-full shadow-[0_20px_50px_rgba(197,160,89,0.3)] text-center relative border border-gold/20"
+              className="bg-warm-white rounded-xl p-10 max-w-sm w-full shadow-[0_20px_50px_rgba(197,160,89,0.3)] text-center relative border border-gold/20"
             >
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-warm-white">
                 <motion.svg 

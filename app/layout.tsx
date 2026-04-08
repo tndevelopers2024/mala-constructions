@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import Preloader from "@/components/Preloader";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -16,6 +17,8 @@ const inter = Inter({
   variable: "--font-sans",
   display: "swap",
 });
+
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://malaconstructions.com"),
@@ -72,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <Preloader />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
