@@ -148,7 +148,7 @@ export default function Navbar() {
                   href="/contact"
                   className="block text-center px-6 py-3 bg-gold text-charcoal font-semibold rounded-lg hover:bg-gold-light transition-colors"
                 >
-                  Contact Us
+                  Enquiry Now
                 </Link>
               </motion.div>
             </div>
