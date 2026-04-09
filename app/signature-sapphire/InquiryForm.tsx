@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function InquiryForm() {
+export default function InquiryForm({ glass = false }: { glass?: boolean }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -63,84 +63,81 @@ export default function InquiryForm() {
   };
 
 
+  const labelCls = glass
+    ? "block text-xs font-bold uppercase tracking-widest text-warm-white/50 mb-2"
+    : "block text-sm font-medium text-charcoal mb-2";
+  const inputCls = glass
+    ? "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-warm-white placeholder:text-white/20 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all backdrop-blur-sm"
+    : "w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal";
+
   return (
     <>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-2">
-              Full Name
-            </label>
+            <label className={labelCls}>Full Name</label>
             <input
               name="name"
               value={formData.name}
               onChange={handleChange}
               type="text"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal"
+              className={inputCls}
               placeholder="Your name"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-2">
-              Phone Number
-            </label>
+            <label className={labelCls}>Phone Number</label>
             <input
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               type="tel"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal"
+              className={inputCls}
               placeholder="+91 Mobile Number"
             />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-charcoal mb-2">
-            Email
-          </label>
+          <label className={labelCls}>Email</label>
           <input
             name="email"
             value={formData.email}
             onChange={handleChange}
             type="email"
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal"
+            className={inputCls}
             placeholder="Your email"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-charcoal mb-2">
-            Flat Preference
-          </label>
-          <select 
+          <label className={labelCls}>Flat Preference</label>
+          <select
             name="flatType"
             value={formData.flatType}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal"
+            className={inputCls}
           >
-            <option value="">Select a flat type</option>
-            <option value="f1">Flat F1/S1/T1 – 1084 sq.ft</option>
-            <option value="f2">Flat F2/S2/T2 – 1154 sq.ft</option>
+            <option value="" className="bg-charcoal text-warm-white">Select a flat type</option>
+            <option value="f1" className="bg-charcoal text-warm-white">Flat F1/S1/T1 – 1084 sq.ft</option>
+            <option value="f2" className="bg-charcoal text-warm-white">Flat F2/S2/T2 – 1154 sq.ft</option>
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-charcoal mb-2">
-            Message
-          </label>
+          <label className={labelCls}>Message</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all bg-white text-charcoal resize-none"
+            className={`${inputCls} resize-none`}
             placeholder="Any specific requirements or questions..."
           />
         </div>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 bg-gold text-charcoal font-semibold rounded-lg hover:bg-gold-light transition-all duration-300 text-sm uppercase tracking-wider relative overflow-hidden group disabled:opacity-70 disabled:cursor-wait"
+          className="w-full py-4 bg-gold text-charcoal font-bold rounded-xl hover:bg-gold-light transition-all duration-300 text-sm uppercase tracking-wider relative overflow-hidden group disabled:opacity-70 disabled:cursor-wait"
         >
           <span className={isSubmitting ? "opacity-0" : "opacity-100"}>
             {submitted ? "Inquiry Sent!" : "Submit Inquiry"}

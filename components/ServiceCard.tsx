@@ -18,7 +18,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Link
-        href={service.id === "stay" ? "/stay" : "/services"}
+        href={service.id === "stay" ? "/contact" : "/services"}
         className="group block bg-white rounded-xl p-8 border border-gray-100 card-hover h-full"
       >
         <div 

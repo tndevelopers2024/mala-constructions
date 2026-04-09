@@ -40,7 +40,7 @@ const slides: Slide[] = [
     title: "Refined Interior Spaces",
     subtitle: "INTERIOR DESIGN & FIT-OUT",
     description: "Transforming interiors into immersive experiences through meticulous detail and premium finishes. Experience luxury in every corner.",
-    primaryCta: { label: "Luxury Stay", href: "/stay" },
+    primaryCta: { label: "Luxury Stay", href: "/contact" },
     secondaryCta: { label: "Get a Quote", href: "/contact" },
   },
 ];

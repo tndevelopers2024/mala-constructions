@@ -100,8 +100,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* At The Top - Luxury Stay Teaser */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* At The Top - Luxury Stay Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-charcoal">
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal" />
         <div className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -111,33 +111,65 @@ export default function HomePage() {
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">Luxury Living</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-warm-white mb-6">
-                At The Top
-              </h2>
-              <p className="text-warm-white/70 text-lg leading-relaxed mb-4">
-                Experience the pinnacle of luxury at our premium penthouse stay, located just 6km from Chennai Central.
-              </p>
-              <p className="text-warm-white/50 mb-8">
-                Smart home technology, private swimming pool, personalized dining, and 24/7 concierge service — a stay designed for those who expect nothing but the best.
-              </p>
-              <Link
-                href="/stay"
-                className="inline-flex items-center px-8 py-3 bg-gold text-charcoal font-semibold rounded hover:bg-gold-light transition-all duration-300 text-sm uppercase tracking-wider"
-              >
-                Discover More
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden border border-gold/20 flex items-center justify-center">
-                <StayCarousel />
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">Hospitality Division</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-warm-white mb-6">
+                  At The Top
+                </h2>
+                <div className="h-1 w-24 bg-gold mb-8" />
+                <p className="text-warm-white/80 text-lg leading-relaxed mb-6">
+                  Experience the pinnacle of luxury at our premium penthouse stay, located just 6km from Chennai Central. A perfect blend of privacy and sophistication.
+                </p>
               </div>
-              {/* Decorative border */}
-              <div className="absolute -inset-3 border border-gold/10 rounded-xl -z-10" />
+
+              {/* Amenities Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {[
+                  { label: "Smart Home", icon: "M3 9 12 2l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10 M12 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2" },
+                  { label: "Wi-Fi", icon: "M5 12.55a11 11 0 0 1 14.08 0 M1.42 9a16 16 0 0 1 21.16 0 M8.53 16.11a6 6 0 0 1 6.95 0" },
+                  { label: "Private Pool", icon: "M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 M2 12c.6.5 1.2 1 2.5 1" },
+                  { label: "Dining", icon: "M3 2v7c0 1.1.9 2 2 2h4V2 M7 2v20 M21 15V2" },
+                  { label: "24/7 Service", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07" },
+                  { label: "Cab Service", icon: "M5 10V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10 group hover:border-gold/30 transition-colors">
+                    <svg className="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={item.icon} />
+                    </svg>
+                    <span className="text-warm-white/70 text-xs font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center px-8 py-4 bg-gold text-charcoal font-semibold rounded hover:bg-gold-light transition-all duration-300 text-sm uppercase tracking-wider"
+                >
+                  Book Your Stay
+                </Link>
+                <a
+                  href="tel:9840264993"
+                  className="inline-flex items-center px-8 py-4 border border-warm-white/20 text-warm-white font-semibold rounded hover:bg-white/5 transition-all duration-300 text-sm uppercase tracking-wider"
+                >
+                  Call for Inquiry
+                </a>
+              </div>
             </div>
 
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gold/20 flex items-center justify-center bg-charcoal-light shadow-2xl">
+                <StayCarousel />
+              </div>
+              {/* Floating Badge */}
+              <div className="absolute -bottom-6 -left-6 bg-gold p-6 rounded-xl shadow-xl hidden md:block animate-bounce-slow">
+                <p className="text-charcoal font-bold text-lg leading-tight">6KM<br /><span className="text-xs uppercase tracking-widest font-normal opacity-80">From Central</span></p>
+              </div>
+              {/* Decorative light effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold/10 blur-[120px] rounded-full -z-10" />
+            </div>
           </div>
         </div>
       </section>
