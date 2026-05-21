@@ -21,7 +21,7 @@ const slides: Slide[] = [
     image: "/images/client-images/Mala-construction-image-26.avif",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
-    description: "Bespoke villas designed with a blend of modern aesthetics and functional elegance. Transforming your vision into reality since 1999.",
+    description: "Bespoke modern villas in Chennai.",
     primaryCta: { label: "Explore Projects", href: "/projects" },
     secondaryCta: { label: "Our Story", href: "/about" },
   },
@@ -30,16 +30,16 @@ const slides: Slide[] = [
     image: "/images/client-images/Mala-construction-image-38.avif",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
-    description: "State-of-the-art commercial spaces that inspire productivity and reflect brand identity. Building infrastructure that stands the test of time.",
+    description: "State-of-the-art commercial construction.",
     primaryCta: { label: "View Services", href: "/services" },
     secondaryCta: { label: "Contact Us", href: "/contact" },
   },
   {
     id: 3,
     image: "/images/client-images/Mala-construction-image-22.avif",
-    title: "Refined Interior Spaces",
-    subtitle: "INTERIOR DESIGN & FIT-OUT",
-    description: "Transforming interiors into immersive experiences through meticulous detail and premium finishes. Experience luxury in every corner.",
+    title: "Refined Luxury Living",
+    subtitle: "INTERIOR & HOSPITALITY",
+    description: "Premium penthouse and interior designs.",
     primaryCta: { label: "Luxury Stay", href: "/contact" },
     secondaryCta: { label: "Get a Quote", href: "/contact" },
   },
@@ -119,7 +119,7 @@ export default function HeroSlider() {
           {/* Content */}
           <div className="absolute inset-0 z-10 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-3xl">
+              <div className="max-w-5xl">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-white leading-tight mb-6"
+                  className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-white leading-tight mb-6 md:whitespace-nowrap"
                 >
                   {slides[currentSlide].title}
                 </motion.h1>
