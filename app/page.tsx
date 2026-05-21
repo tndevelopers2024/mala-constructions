@@ -12,6 +12,7 @@ import ContactForm from "./contact/ContactForm";
 import { CONTACT } from "@/lib/constants";
 import ProjectGallery from "@/components/ProjectGallery";
 import StayCarousel from "@/components/StayCarousel";
+import Image from "next/image";
 
 
 export default function HomePage() {
@@ -24,6 +25,52 @@ export default function HomePage() {
 
       {/* Marquee Strap */}
       <MarqueeBanner />
+
+      {/* Passion for Quality Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-charcoal text-center text-warm-white flex items-center justify-center min-h-[500px]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/client-images/Mala-construction-image-31.avif"
+            alt="Mala Constructions - Passion for Quality"
+            fill
+            className="object-cover opacity-30 select-none pointer-events-none"
+            priority
+          />
+          {/* Dark gradient overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/95 via-charcoal/80 to-charcoal/95" />
+          {/* Subtle grid pattern for premium luxury feel */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(201,168,76,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.5) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          <span className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-semibold mb-4 block">
+            Redefining Construction Standards
+          </span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-warm-white mb-6 leading-tight max-w-4xl">
+            A Passion for Quality, Innovation and People Excellence
+          </h2>
+          
+          {/* Diamond Separator */}
+          <div className="flex items-center gap-3 justify-center mb-8">
+            <span className="h-px w-16 bg-gold/75" />
+            <span className="w-2.5 h-2.5 bg-gold rotate-45" />
+            <span className="h-px w-16 bg-gold/75" />
+          </div>
+
+          <p className="text-warm-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed max-w-4xl mx-auto">
+            A people-driven company with a passion to redefine quality standards in Chennai. Mala Constructions is a leading construction company, shaping the construction market with its state-of-the-art craft and cutting-edge practices. Leading through inspiration from other quality driven industries, our processes and techniques blend to produce world class and futuristic projects that stand the test of time.
+          </p>
+        </div>
+      </section>
 
       {/* Services Overview */}
       <section className="section-padding bg-warm-white">

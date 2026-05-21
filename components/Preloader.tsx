@@ -48,7 +48,7 @@ export default function Preloader() {
               className="relative w-48 h-48 md:w-64 md:h-64"
             >
               <Image
-                src="/images/logo/logo.png"
+                src="/images/logo/new-logo.png"
                 alt="Mala Constructions Logo"
                 fill
                 className="object-contain brightness-0 invert"

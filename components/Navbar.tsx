@@ -22,33 +22,27 @@ export default function Navbar() {
     setIsMobileOpen(false);
   }, [pathname]);
 
+  const isLight = true;
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled || isMobileOpen
-          ? "bg-charcoal/95 backdrop-blur-md shadow-lg shadow-black/20"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-black/5 ${
+        isScrolled ? "shadow-md" : "shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
+            <div className="relative w-32 h-14 transition-transform duration-300 group-hover:scale-105">
               <Image 
-                src="/images/logo/logo.png"
+                src="/images/logo/new-logo.png"
                 alt="MALA Constructions"
                 fill
-                className="object-contain brightness-0 invert"
+                className={`object-contain object-left transition-all duration-300 ${
+                  isLight ? "brightness-0" : "brightness-0 invert"
+                }`}
               />
-            </div>
-            <div>
-              <span className="text-2xl font-serif font-bold text-warm-white tracking-wider">
-                MALA
-              </span>
-              <span className="block text-[10px] text-gold tracking-[0.3em] uppercase -mt-1">
-                Constructions
-              </span>
             </div>
           </Link>
 
@@ -61,6 +55,8 @@ export default function Navbar() {
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${
                   pathname === link.href
                     ? "text-gold"
+                    : isLight
+                    ? "text-charcoal/80 hover:text-gold"
                     : "text-warm-white/80 hover:text-gold"
                 }`}
               >
@@ -85,7 +81,9 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 text-warm-white"
+            className={`lg:hidden p-2 transition-colors duration-300 ${
+              isLight ? "text-charcoal" : "text-warm-white"
+            }`}
             aria-label="Toggle menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
@@ -116,7 +114,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-charcoal/98 backdrop-blur-md border-t border-white/5"
+            className="lg:hidden bg-white/98 backdrop-blur-md border-t border-black/5 shadow-lg"
           >
             <div className="px-4 py-6 space-y-1">
               {NAV_LINKS.map((link, i) => (
@@ -130,8 +128,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${
                       pathname === link.href
-                        ? "text-gold bg-white/5"
-                        : "text-warm-white/80 hover:text-gold hover:bg-white/5"
+                        ? "text-gold bg-charcoal/5"
+                        : "text-charcoal/80 hover:text-gold hover:bg-charcoal/5"
                     }`}
                   >
                     {link.label}

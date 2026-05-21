@@ -4,31 +4,23 @@ import { CONTACT, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-warm-white/80">
+    <footer className="bg-white text-charcoal/80 border-t border-black/5">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="relative w-12 h-12">
+              <div className="relative w-40 h-16">
                 <Image 
-                  src="/images/logo/logo.png"
+                  src="/images/logo/new-logo.png"
                   alt="MALA Constructions"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain object-left brightness-0"
                 />
               </div>
-              <div>
-                <span className="text-xl font-serif font-bold text-warm-white tracking-wider">
-                  MALA
-                </span>
-                <span className="block text-[9px] text-gold tracking-[0.3em] uppercase -mt-1">
-                  Constructions
-                </span>
-              </div>
             </Link>
-            <p className="text-warm-white/60 text-sm leading-relaxed">
+            <p className="text-charcoal/60 text-sm leading-relaxed">
               Transforming spaces since 1999. A legacy of innovation, quality
               craftsmanship, and customer satisfaction in construction.
             </p>
@@ -42,7 +34,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-warm-white/60 hover:text-gold transition-colors duration-300 flex items-center gap-2"
+                    className="text-sm text-charcoal/60 hover:text-gold transition-colors duration-300 flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 bg-gold/40 rounded-full" />
                     {link.label}
@@ -61,13 +53,13 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-warm-white/60">{CONTACT.address}</span>
+                <span className="text-charcoal/60">{CONTACT.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <div className="text-warm-white/60">
+                <div className="text-charcoal/60">
                   {CONTACT.phones.map((phone, i) => (
                     <a key={i} href={`tel:${phone}`} className="hover:text-gold transition-colors block">
                       {phone}
@@ -79,7 +71,7 @@ export default function Footer() {
                 <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href={`mailto:${CONTACT.email}`} className="text-warm-white/60 hover:text-gold transition-colors break-all">
+                <a href={`mailto:${CONTACT.email}`} className="text-charcoal/60 hover:text-gold transition-colors break-all">
                   {CONTACT.email}
                 </a>
               </li>
@@ -99,7 +91,7 @@ export default function Footer() {
                   key={social.label}
                   href="#"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-warm-white/60 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-charcoal/60 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d={social.icon} />
@@ -109,7 +101,7 @@ export default function Footer() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-2.5 bg-gold text-charcoal text-sm font-semibold rounded hover:bg-gold-light transition-all duration-300"
+              className="inline-flex items-center px-6 py-2.5 bg-gold text-charcoal text-sm font-semibold rounded hover:bg-gold-light transition-all duration-300 hover:shadow-md hover:shadow-gold/10"
             >
               Get in Touch
             </Link>
@@ -118,12 +110,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-black/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-warm-white/40 text-sm">
+          <p className="text-charcoal/40 text-sm">
             © {new Date().getFullYear()} MALA Constructions. All rights reserved.
           </p>
-          <p className="text-warm-white/30 text-xs">
+          <p className="text-charcoal/30 text-xs">
             Chennai, India
           </p>
         </div>
