@@ -13,6 +13,7 @@ import { CONTACT } from "@/lib/constants";
 import ProjectGallery from "@/components/ProjectGallery";
 import StayCarousel from "@/components/StayCarousel";
 import Image from "next/image";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 export default function HomePage() {
@@ -223,10 +224,8 @@ export default function HomePage() {
       {/* Full Project Gallery */}
       <ProjectGallery />
 
-
-
-
-
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Contact Us  */}
       <section className="section-padding bg-warm-white">
