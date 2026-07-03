@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact MALA Constructions | Chennai's Trusted Builders",
     description: "Ready to start your project? Reach out for a consultation and expert construction services.",
-    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph-by-mala-constructions.webp"],
   },
 };
 

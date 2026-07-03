@@ -17,7 +17,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-amber-800 to-amber-600",
-    image: "/images/projects/gopi-residence.jpg",
+    image: "/images/projects/gopi-residence-by-mala-constructions.jpg",
     description: "Premium residential villa with modern architecture",
   },
   {
@@ -27,7 +27,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-slate-700 to-slate-500",
-    image: "/images/projects/luke-thomas-residence.jpg",
+    image: "/images/projects/luke-thomas-residence-by-mala-constructions.jpg",
     description: "Contemporary home with elegant design",
   },
   {
@@ -37,7 +37,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-stone-700 to-stone-500",
-    image: "/images/projects/madhu-residence.jpg",
+    image: "/images/projects/madhu-residence-by-mala-constructions.jpg",
     description: "Modern residential construction with quality finishes",
   },
   {
@@ -47,7 +47,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-zinc-700 to-zinc-500",
-    image: "/images/projects/prabin-residence.jpg",
+    image: "/images/projects/prabin-residence-by-mala-constructions.jpg",
     description: "Luxury villa with contemporary amenities",
   },
   {
@@ -57,7 +57,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-neutral-700 to-neutral-500",
-    image: "/images/projects/veni-residence.jpg",
+    image: "/images/projects/veni-residence-by-mala-constructions.jpg",
     description: "Elegant residential home with modern design",
   },
 ];
@@ -70,7 +70,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-emerald-800 to-emerald-600",
-    image: "/images/on-going-projects/LATHIKA RESIDENCE.png",
+    image: "/images/on-going-projects/lathika-residence-by-mala-constructions.png",
     description: "Elegant residential project in the heart of West Mambalam",
   },
 
@@ -81,7 +81,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-teal-800 to-teal-600",
-    image: "/images/on-going-projects/Mr. THOMAS APARTMENTS.png",
+    image: "/images/on-going-projects/mr-thomas-apartments-by-mala-constructions.png",
     description: "Modern apartment complex featuring contemporary amenities",
   },
 
@@ -92,7 +92,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-cyan-800 to-cyan-600",
-    image: "/images/on-going-projects/Mr. VASUDEVAN RESIDENCE.png",
+    image: "/images/on-going-projects/mr-vasudevan-residence-by-mala-constructions.png",
     description: "Custom-designed luxury residence with premium finishes",
   },
 
@@ -103,7 +103,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-sky-800 to-sky-600",
-    image: "/images/on-going-projects/Mr. SAMUEL SATHISH RESIDENCE.png",
+    image: "/images/on-going-projects/mr-samuel-sathish-residence-by-mala-constructions.png",
     description: "Modern residential villa featuring spacious interiors",
   },
 
@@ -114,7 +114,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-indigo-800 to-indigo-600",
-    image: "/images/on-going-projects/Mr. KRISHNA MENON RESIDENCE.png",
+    image: "/images/on-going-projects/mr-krishna-menon-residence-by-mala-constructions.png",
     description: "Contemporary residential home at Tiruvottriyur",
   },
 
@@ -125,7 +125,7 @@ export const ongoingProjects: Project[] = [
     type: "Residential",
     status: "ongoing",
     gradient: "from-violet-800 to-violet-600",
-    image: "/images/on-going-projects/Mrs. MALA’S LEGACY.png",
+    image: "/images/on-going-projects/mrs-malas-legacy-by-mala-constructions.png",
     description: "Flagship residential apartment complex in Kolathur",
   },
 

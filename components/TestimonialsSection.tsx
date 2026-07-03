@@ -13,37 +13,37 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.07.09 PM.png",
+    src: "/images/testimonials/whatsapp-review-1-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - WhatsApp Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.07.22 PM.png",
+    src: "/images/testimonials/google-review-1-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - Google Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.07.32 PM.png",
+    src: "/images/testimonials/whatsapp-review-2-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - WhatsApp Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.07.43 PM.png",
+    src: "/images/testimonials/google-review-2-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - Google Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.07.53 PM.png",
+    src: "/images/testimonials/customer-review-1-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - Customer Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.08.03 PM.png",
+    src: "/images/testimonials/whatsapp-review-3-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - WhatsApp Review",
     type: "Client Review",
   },
   {
-    src: "/images/testimonials/Screenshot 2026-05-23 at 12.08.18 PM.png",
+    src: "/images/testimonials/google-review-3-by-mala-constructions.png",
     alt: "Mala Constructions Client Feedback - Google Review",
     type: "Client Review",
   },

@@ -36,7 +36,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-32 h-14 transition-transform duration-300 group-hover:scale-105">
               <Image 
-                src="/images/logo/new-logo.png"
+                src="/images/logo/new-logo-by-mala-constructions.png"
                 alt="MALA Constructions"
                 fill
                 className={`object-contain object-left transition-all duration-300 ${

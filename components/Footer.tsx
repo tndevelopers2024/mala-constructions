@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
               <div className="relative w-40 h-16">
                 <Image 
-                  src="/images/logo/new-logo.png"
+                  src="/images/logo/new-logo-by-mala-constructions.png"
                   alt="MALA Constructions"
                   fill
                   className="object-contain object-left brightness-0"

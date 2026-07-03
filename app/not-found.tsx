@@ -10,7 +10,7 @@ export default function NotFound() {
       <div 
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
-          backgroundImage: "url('/images/hero/commercial-highrise.png')",
+          backgroundImage: "url('/images/hero/commercial-highrise-by-mala-constructions.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

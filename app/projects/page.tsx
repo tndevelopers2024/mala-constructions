@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Project Portfolio | MALA Constructions",
     description: "Explore our archive of 100+ successfully completed residential and commercial projects.",
-    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph-by-mala-constructions.webp"],
   },
 };
 

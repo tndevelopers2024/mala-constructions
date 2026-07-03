@@ -18,7 +18,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/images/client-images/Mala-construction-image-26.avif",
+    image: "/images/hero/hero-crafting-architectural-excellence-by-mala-constructions.avif",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
     description: "Bespoke modern villas in Chennai.",
@@ -27,7 +27,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "/images/client-images/Mala-construction-image-38.avif",
+    image: "/images/hero/hero-engineering-the-future-by-mala-constructions.avif",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
     description: "State-of-the-art commercial construction.",
@@ -36,7 +36,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "/images/client-images/Mala-construction-image-22.avif",
+    image: "/images/hero/hero-refined-luxury-living-by-mala-constructions.avif",
     title: "Refined Luxury Living",
     subtitle: "INTERIOR & HOSPITALITY",
     description: "Premium penthouse and interior designs.",

@@ -32,7 +32,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/client-images/Mala-construction-image-31.avif"
+            src="/images/hero/passion-for-quality-by-mala-constructions.avif"
             alt="Mala Constructions - Passion for Quality"
             fill
             className="object-cover opacity-30 select-none pointer-events-none"

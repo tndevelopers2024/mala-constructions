@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Construction Services | MALA Constructions",
     description: "From residential villas to commercial outlets, we provide end-to-end construction solutions with a focus on quality and Vaasthu.",
-    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph-by-mala-constructions.webp"],
   },
 };
 

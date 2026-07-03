@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Signature Sapphire | Boutique Luxury Living",
     description: "Limited edition 3BHK homes designed for those who appreciate the finer things in life.",
-    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph.webp"],
+    images: ["https://mala-constructions.vercel.app/images/open-graph/open-graph-by-mala-constructions.webp"],
   },
 };
 
@@ -51,7 +51,7 @@ const floorPlans = [
     area: "1084",
     config: "3BHK Luxury Suite",
     toilets: "3",
-    image: "/images/blue-print/blue-print-1.png",
+    image: "/images/blue-print/elite-series-f1-by-mala-constructions.png",
     details: ["East Facing", "UDS: 485 sq.ft", "Private Balcony", "Ventilated Kitchen"]
   },
   {
@@ -59,7 +59,7 @@ const floorPlans = [
     area: "1154",
     config: "3BHK Grand Suite",
     toilets: "3",
-    image: "/images/blue-print/blue-print-2.webp",
+    image: "/images/blue-print/elite-series-f2-by-mala-constructions.webp",
     details: ["East Facing", "UDS: 516 sq.ft", "Expansion Living", "Corner Unit"]
   },
 ];
@@ -374,7 +374,7 @@ export default function SignatureSapphirePage() {
       <section id="inquiry" className="relative min-h-screen flex items-center overflow-hidden">
         {/* Full-bleed background image */}
         <Image
-          src="/images/client-images/Mala-construction-image-5.avif"
+          src="/images/client-images/mala-construction-image-5-by-mala-constructions.avif"
           alt="Mala Constructions luxury interior"
           fill
           className="object-cover object-center"
@@ -422,10 +422,10 @@ export default function SignatureSapphirePage() {
               {/* 2×2 image mosaic */}
               <div className="grid grid-cols-2 gap-3 max-w-sm">
                 {[
-                  "/images/client-images/Mala-construction-image-1.avif",
-                  "/images/client-images/Mala-construction-image-3.avif",
-                  "/images/client-images/Mala-construction-image-7.avif",
-                  "/images/client-images/Mala-construction-image-10.avif",
+                  "/images/client-images/mala-construction-image-1-by-mala-constructions.avif",
+                  "/images/client-images/mala-construction-image-3-by-mala-constructions.avif",
+                  "/images/client-images/mala-construction-image-7-by-mala-constructions.avif",
+                  "/images/client-images/mala-construction-image-10-by-mala-constructions.avif",
                 ].map((src, i) => (
                   <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-white/5">
                     <Image
