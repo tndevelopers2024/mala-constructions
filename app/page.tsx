@@ -3,9 +3,8 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 import StatsBar from "@/components/StatsBar";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
-import ProjectCard from "@/components/ProjectCard";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import { services } from "@/data/services";
-import { allProjects } from "@/data/projects";
 import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
 import ContactForm from "./contact/ContactForm";
@@ -17,8 +16,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 export default function HomePage() {
-  const featuredProjects = allProjects.slice(0, 6);
-
   return (
     <>
       {/* Hero Slider */}
@@ -59,7 +56,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-warm-white mb-6 leading-tight max-w-4xl">
             A Passion for Quality, Innovation and People Excellence
           </h2>
-          
+
           {/* Diamond Separator */}
           <div className="flex items-center gap-3 justify-center mb-8">
             <span className="h-px w-16 bg-gold/75" />
@@ -72,6 +69,9 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Featured Projects */}
+      <FeaturedProjects />
 
       {/* Services Overview */}
       <section className="section-padding bg-warm-white">
@@ -91,31 +91,6 @@ export default function HomePage() {
       {/* Stats Bar */}
       <StatsBar />
 
-      {/* Featured Projects */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Featured Projects"
-            subtitle="A showcase of our finest work across Chennai"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/projects"
-              className="inline-flex items-center px-8 py-3 bg-charcoal text-warm-white font-semibold rounded hover:bg-charcoal-light transition-all duration-300 text-sm uppercase tracking-wider group"
-            >
-              View All Projects
-              <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
       {/* Contact CTA Banner */}
       <section className="py-20 bg-warm-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

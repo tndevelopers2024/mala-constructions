@@ -11,6 +11,12 @@ export default function Preloader() {
     // Ensure we show the preloader for at least 2 seconds for aesthetic impact
     const timer = setTimeout(() => {
       setShow(false);
+      setTimeout(() => {
+        if (typeof window !== "undefined") {
+          (window as any).__preloaderFinished = true;
+          window.dispatchEvent(new Event("preloaderFinished"));
+        }
+      }, 1000);
     }, 2500);
 
     return () => clearTimeout(timer);

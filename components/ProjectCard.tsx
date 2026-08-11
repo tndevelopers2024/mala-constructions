@@ -42,11 +42,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Status Badge */}
         <div className="absolute top-4 right-4 z-10">
-          <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full backdrop-blur-md border ${
-            project.status === "completed"
+          <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full backdrop-blur-md border ${project.status === "completed"
               ? "bg-green-500/80 text-white border-green-400/50"
               : "bg-amber-500/80 text-white border-amber-400/50"
-          }`}>
+            }`}>
             {project.status === "completed" ? "Completed" : "Ongoing"}
           </span>
         </div>
@@ -69,7 +68,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.description}
           </p>
         </div>
-        
+
         {/* Decorative divider */}
         <div className="mt-6 pt-4 border-t border-gray-50 flex items-center justify-between">
           <span className="text-[10px] uppercase tracking-[0.2em] text-gold/60 font-bold">{project.type}</span>
