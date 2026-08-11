@@ -8,15 +8,19 @@ export default function FloatingButtons() {
 
   // Toggle visibility based on scroll position
   useEffect(() => {
+    let ticking = false;
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const visible = window.scrollY > 300;
+          setIsVisible((prev) => (prev !== visible ? visible : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 

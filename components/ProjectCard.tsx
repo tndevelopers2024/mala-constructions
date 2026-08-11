@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 interface ProjectCardProps {
   project: Project;
@@ -22,10 +23,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className={`relative h-80 w-full bg-gradient-to-br ${project.gradient} overflow-hidden`}>
         {project.image ? (
           <Image
-            src={project.image}
+            src={optimizeCloudinaryUrl(project.image, { width: 800 })}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center opacity-20">

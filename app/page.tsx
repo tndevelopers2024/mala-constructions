@@ -32,8 +32,9 @@ export default function HomePage() {
             src="/images/hero/passion-for-quality-by-mala-constructions.avif"
             alt="Mala Constructions - Passion for Quality"
             fill
+            sizes="100vw"
+            loading="lazy"
             className="object-cover opacity-30 select-none pointer-events-none"
-            priority
           />
           {/* Dark gradient overlay to ensure text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/95 via-charcoal/80 to-charcoal/95" />

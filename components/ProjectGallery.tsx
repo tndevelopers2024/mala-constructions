@@ -5,6 +5,7 @@ import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import { galleryImages } from "@/data/galleryImages";
 import { motion, AnimatePresence } from "framer-motion";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 export default function ProjectGallery() {
   const [displayCount, setDisplayCount] = useState(12);
@@ -101,10 +102,11 @@ export default function ProjectGallery() {
               >
                 {/* Full Image */}
                 <Image
-                  src={src}
+                  src={optimizeCloudinaryUrl(src, { width: 800 })}
                   alt={`Mala Construction Project ${index + 1}`}
-                  width={1200}
-                  height={900}
+                  width={800}
+                  height={600}
+                  loading="lazy"
                   className="
             w-full
             h-auto
@@ -311,9 +313,10 @@ export default function ProjectGallery() {
             >
               <div className="relative w-full h-full">
                 <Image
-                  src={galleryImages[selectedImageIndex]}
+                  src={optimizeCloudinaryUrl(galleryImages[selectedImageIndex], { width: 1600 })}
                   alt={`Mala Construction Project Full View`}
                   fill
+                  sizes="100vw"
                   className="object-contain"
                   priority
                 />

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 interface Slide {
   id: number;
@@ -28,7 +29,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786448467/hero-2_xtkcp0.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
     description: "State-of-the-art commercial construction.",
@@ -37,7 +38,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786448467/heor-3_mn1ydt.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
     title: "Refined Luxury Living",
     subtitle: "INTERIOR & HOSPITALITY",
     description: "Premium penthouse and interior designs.",
@@ -47,7 +48,7 @@ const slides: Slide[] = [
   {
     id: 4,
     image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786448468/hero-04_tmlp4s.png",
+      "https://res.cloudinary.com/rlokioxu/image/upload/v1786452383/hero-4_tn0gcp.png",
     title: "Building Dreams, Creating Legacies",
     subtitle: "RESIDENTIAL CONSTRUCTION",
     description:
@@ -59,7 +60,7 @@ const slides: Slide[] = [
   {
     id: 5,
     image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786448476/hero-05_ik6aje.png",
+      "https://res.cloudinary.com/rlokioxu/image/upload/v1786451951/hero-5_npnl0x.png",
     title: "Built With Trust & Excellence",
     subtitle: "QUALITY • CRAFTSMANSHIP • COMMITMENT",
     description:
@@ -81,7 +82,7 @@ export default function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    const duration = currentSlide === 0 ? 10000 : 3000;
+    const duration = currentSlide === 0 ? 10000 : 4000;
     const timer = setTimeout(() => {
       nextSlide();
     }, duration);
@@ -101,7 +102,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative h-[650px] sm:h-[750px] lg:h-[850px] w-full overflow-hidden bg-charcoal select-none">
+    <section className="relative h-[600px] sm:h-[650px] lg:h-[750px] w-full overflow-hidden bg-charcoal select-none">
       <AnimatePresence mode="sync">
         <motion.div
           key={currentSlide}
@@ -125,17 +126,18 @@ export default function HeroSlider() {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
               >
-                <source src={slides[currentSlide].video} type="video/mp4" />
+                <source src={optimizeCloudinaryUrl(slides[currentSlide].video!, { width: 1280 })} type="video/mp4" />
               </video>
             ) : (
               <Image
-                src={slides[currentSlide].image!}
+                src={optimizeCloudinaryUrl(slides[currentSlide].image!, { width: 1600 })}
                 alt={slides[currentSlide].title}
                 fill
                 sizes="100vw"
                 priority={currentSlide === 0}
+                loading={currentSlide === 0 ? "eager" : "lazy"}
                 className="object-cover object-center pointer-events-none"
               />
             )}

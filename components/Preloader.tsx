@@ -72,7 +72,7 @@ export default function Preloader() {
                   repeat: Infinity, 
                   ease: "easeInOut" 
                 }}
-                className="absolute inset-0 bg-gold/20 blur-[60px] rounded-full -z-10"
+                className="absolute inset-0 bg-gold/20 blur-2xl rounded-full -z-10"
               />
             </motion.div>
 

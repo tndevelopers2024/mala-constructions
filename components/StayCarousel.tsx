@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { galleryImages } from "@/data/galleryImages";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 // Filter for some particularly nice images if needed, or just use a slice
 const stayImages = galleryImages.slice(0, 15);
@@ -28,18 +29,20 @@ export default function StayCarousel() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="absolute inset-0 w-full h-full"
         >
           <Image
-            src={stayImages[currentIndex]}
+            src={optimizeCloudinaryUrl(stayImages[currentIndex], { width: 1000 })}
             alt={`Luxury Stay Image ${currentIndex + 1}`}
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading={currentIndex === 0 ? "eager" : "lazy"}
             className="object-cover rounded-xl"
-            priority
+            priority={currentIndex === 0}
           />
           {/* Subtle Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent rounded-xl" />
