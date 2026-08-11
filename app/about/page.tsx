@@ -84,6 +84,8 @@ export default function AboutPage() {
         </div>
       </section>
 
+
+
       {/* Vision */}
       <section className="section-padding bg-warm-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -94,10 +96,10 @@ export default function AboutPage() {
           <div className="space-y-6 text-soft-grey leading-relaxed text-lg">
             <p>
               With a legacy of excellence and a commitment to innovation,
-MALA Construction Firm aims to redefine construction standards.
-We envision expanding into larger-scale projects while continuing to
-uphold our core values: client satisfaction, quality craftsmanship,
-and sustainable practices.
+              MALA Construction Firm aims to redefine construction standards.
+              We envision expanding into larger-scale projects while continuing to
+              uphold our core values: client satisfaction, quality craftsmanship,
+              and sustainable practices.
             </p>
             <p>
               As we look ahead, MALA Constructions is committed to embracing sustainable building practices, integrating smart home technologies, and expanding our footprint across Tamil Nadu.
@@ -108,24 +110,24 @@ and sustainable practices.
           </div>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { 
-                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3 2 5a7 7 0 0 1-10 13z"/><path d="M7 20a4 4 0 0 1 0-8h2.1"/><path d="M13 20v-2"/><path d="M12 21h4"/></svg>`, 
-                title: "Sustainability", 
-                desc: "Green building practices for a better tomorrow" 
+              {
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3 2 5a7 7 0 0 1-10 13z"/><path d="M7 20a4 4 0 0 1 0-8h2.1"/><path d="M13 20v-2"/><path d="M12 21h4"/></svg>`,
+                title: "Sustainability",
+                desc: "Green building practices for a better tomorrow"
               },
-              { 
-                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`, 
-                title: "Innovation", 
-                desc: "Smart homes and cutting-edge technology" 
+              {
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
+                title: "Innovation",
+                desc: "Smart homes and cutting-edge technology"
               },
-              { 
-                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="m11 17 2 2 4-4"/><path d="m22 10-6 6"/><path d="M8 8.6a3 3 0 1 0-2.8 2.8"/><path d="M18 8.6a3 3 0 1 1 2.8 2.8"/><path d="M7 21a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4"/></svg>`, 
-                title: "Community", 
-                desc: "Building spaces that bring people together" 
+              {
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto"><path d="m11 17 2 2 4-4"/><path d="m22 10-6 6"/><path d="M8 8.6a3 3 0 1 0-2.8 2.8"/><path d="M18 8.6a3 3 0 1 1 2.8 2.8"/><path d="M7 21a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4"/></svg>`,
+                title: "Community",
+                desc: "Building spaces that bring people together"
               },
             ].map((item) => (
               <div key={item.title} className="p-6 rounded-xl border border-gray-100 bg-white card-hover">
-                <div 
+                <div
                   className="text-gold mb-3"
                   dangerouslySetInnerHTML={{ __html: item.icon }}
                 />

@@ -9,6 +9,124 @@ export interface Project {
   description: string;
 }
 
+// export const completedProjects: Project[] = [
+//   {
+//     id: "gopi-residence",
+//     title: "Mr. Gopi Residence",
+//     location: "Mannivakkam, Chennai",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-amber-800 to-amber-600",
+//     image: "/images/projects/gopi-residence-by-mala-constructions.jpg",
+//     description: "Premium residential villa with modern architecture",
+//   },
+//   {
+//     id: "luke-thomas-residence",
+//     title: "Mr. Luke Thomas Residence",
+//     location: "Perambur, Chennai",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-slate-700 to-slate-500",
+//     image: "/images/projects/luke-thomas-residence-by-mala-constructions.jpg",
+//     description: "Contemporary home with elegant design",
+//   },
+//   {
+//     id: "madhu-residence",
+//     title: "Mr. Madhu Residence",
+//     location: "Madhavaram, Chennai",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-stone-700 to-stone-500",
+//     image: "/images/projects/madhu-residence-by-mala-constructions.jpg",
+//     description: "Modern residential construction with quality finishes",
+//   },
+//   {
+//     id: "prabin-residence",
+//     title: "Mr. Prabin Residence",
+//     location: "Poombuhar Nagar, Chennai",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-zinc-700 to-zinc-500",
+//     image: "/images/projects/prabin-residence-by-mala-constructions.jpg",
+//     description: "Luxury villa with contemporary amenities",
+//   },
+//   {
+//     id: "veni-residence",
+//     title: "Mrs. Veni Residence",
+//     location: "Senthil Nagar, Chennai",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-neutral-700 to-neutral-500",
+//     image: "/images/projects/veni-residence-by-mala-constructions.jpg",
+//     description: "Elegant residential home with modern design",
+//   },
+//   {
+//     id: "lathika-residence",
+//     title: "Mrs. Lathika Residence",
+//     location: "West Mambalam",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-emerald-800 to-emerald-600",
+//     image: "/images/on-going-projects/lathika-residence-by-mala-constructions.png",
+//     description: "Elegant residential project in the heart of West Mambalam",
+//   },
+
+//   {
+//     id: "thomas-apartments",
+//     title: "Mr. Thomas Apartments",
+//     location: "Annapoorna Nagar",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-teal-800 to-teal-600",
+//     image: "/images/on-going-projects/mr-thomas-apartments-by-mala-constructions.png",
+//     description: "Modern apartment complex featuring contemporary amenities",
+//   },
+
+//   {
+//     id: "vasudevan-residence",
+//     title: "Mr. Vasudevan Residence",
+//     location: "Poombukar Nagar",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-cyan-800 to-cyan-600",
+//     image: "/images/on-going-projects/mr-vasudevan-residence-by-mala-constructions.png",
+//     description: "Custom-designed luxury residence with premium finishes",
+//   },
+
+//   {
+//     id: "samuel-sathish-residence",
+//     title: "Mr. Samuel Sathish Residence",
+//     location: "Vadaperumbakkam",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-sky-800 to-sky-600",
+//     image: "/images/on-going-projects/mr-samuel-sathish-residence-by-mala-constructions.png",
+//     description: "Modern residential villa featuring spacious interiors",
+//   },
+
+//   {
+//     id: "krishna-menon-residence",
+//     title: "Mr. Krishna Menon Residence",
+//     location: "Tiruvottriyur",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-indigo-800 to-indigo-600",
+//     image: "/images/on-going-projects/mr-krishna-menon-residence-by-mala-constructions.png",
+//     description: "Contemporary residential home at Tiruvottriyur",
+//   },
+
+//   {
+//     id: "malas-legacy",
+//     title: "Mrs. Mala's Legacy Residential Apartment",
+//     location: "Kolathur",
+//     type: "Residential",
+//     status: "completed",
+//     gradient: "from-violet-800 to-violet-600",
+//     image: "/images/on-going-projects/mrs-malas-legacy-by-mala-constructions.png",
+//     description: "Flagship residential apartment complex in Kolathur",
+//   },
+// ];
+
 export const completedProjects: Project[] = [
   {
     id: "gopi-residence",
@@ -17,7 +135,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-amber-800 to-amber-600",
-    image: "/images/projects/gopi-residence-by-mala-constructions.jpg",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363326/gopi-residence-by-mala-constructions_o5onnq.jpg",
     description: "Premium residential villa with modern architecture",
   },
   {
@@ -27,7 +145,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-slate-700 to-slate-500",
-    image: "/images/projects/luke-thomas-residence-by-mala-constructions.jpg",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363332/alex-tyson-hdaxzewxuus-unsplash-by-mala-constructions_huxhxh.jpg",
     description: "Contemporary home with elegant design",
   },
   {
@@ -37,7 +155,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-stone-700 to-stone-500",
-    image: "/images/projects/madhu-residence-by-mala-constructions.jpg",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363327/madhu-residence-by-mala-constructions_jkpt6u.jpg",
     description: "Modern residential construction with quality finishes",
   },
   {
@@ -47,7 +165,7 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-zinc-700 to-zinc-500",
-    image: "/images/projects/prabin-residence-by-mala-constructions.jpg",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363328/prabin-residence-by-mala-constructions_l2jhsl.jpg",
     description: "Luxury villa with contemporary amenities",
   },
   {
@@ -57,77 +175,137 @@ export const completedProjects: Project[] = [
     type: "Residential",
     status: "completed",
     gradient: "from-neutral-700 to-neutral-500",
-    image: "/images/projects/veni-residence-by-mala-constructions.jpg",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363330/veni-residence-by-mala-constructions_b0gjxs.jpg",
     description: "Elegant residential home with modern design",
   },
-];
-
-export const ongoingProjects: Project[] = [
   {
     id: "lathika-residence",
     title: "Mrs. Lathika Residence",
     location: "West Mambalam",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-emerald-800 to-emerald-600",
-    image: "/images/on-going-projects/lathika-residence-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363335/lathika-residence-by-mala-constructions_evj6i5.png",
     description: "Elegant residential project in the heart of West Mambalam",
   },
-
   {
     id: "thomas-apartments",
     title: "Mr. Thomas Apartments",
     location: "Annapoorna Nagar",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-teal-800 to-teal-600",
-    image: "/images/on-going-projects/mr-thomas-apartments-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363342/mr-thomas-apartments-by-mala-constructions_rhkb7l.png",
     description: "Modern apartment complex featuring contemporary amenities",
   },
-
   {
     id: "vasudevan-residence",
     title: "Mr. Vasudevan Residence",
     location: "Poombukar Nagar",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-cyan-800 to-cyan-600",
-    image: "/images/on-going-projects/mr-vasudevan-residence-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363344/mr-vasudevan-residence-by-mala-constructions_b4aank.png",
     description: "Custom-designed luxury residence with premium finishes",
   },
-
   {
     id: "samuel-sathish-residence",
     title: "Mr. Samuel Sathish Residence",
     location: "Vadaperumbakkam",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-sky-800 to-sky-600",
-    image: "/images/on-going-projects/mr-samuel-sathish-residence-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363338/mr-samuel-sathish-residence-by-mala-constructions_jzmmhb.png",
     description: "Modern residential villa featuring spacious interiors",
   },
-
   {
     id: "krishna-menon-residence",
     title: "Mr. Krishna Menon Residence",
     location: "Tiruvottriyur",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-indigo-800 to-indigo-600",
-    image: "/images/on-going-projects/mr-krishna-menon-residence-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363336/mr-krishna-menon-residence-by-mala-constructions_vg9ygz.png",
     description: "Contemporary residential home at Tiruvottriyur",
   },
-
   {
     id: "malas-legacy",
     title: "Mrs. Mala's Legacy Residential Apartment",
     location: "Kolathur",
     type: "Residential",
-    status: "ongoing",
+    status: "completed",
     gradient: "from-violet-800 to-violet-600",
-    image: "/images/on-going-projects/mrs-malas-legacy-by-mala-constructions.png",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363340/mrs-malas-legacy-by-mala-constructions_hhx6xz.png",
     description: "Flagship residential apartment complex in Kolathur",
+  }
+];
+
+export const ongoingProjects: Project[] = [
+  {
+    id: "Rajesh-residence",
+    title: "Mr. Rajesh Residence",
+    location: "Periyar Nagar",
+    type: "Residential",
+    status: "ongoing",
+    gradient: "from-emerald-800 to-emerald-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358937/Mr.Rajesh_residence_rtj5v7.jpg",
+    description: "Custom-designed home with spacious interiors and modern amenities",
   },
+
+  // {
+  //   id: "thomas-apartments",
+  //   title: "Mr. Thomas Apartments",
+  //   location: "Annapoorna Nagar",
+  //   type: "Residential",
+  //   status: "ongoing",
+  //   gradient: "from-teal-800 to-teal-600",
+  //   image: "/images/on-going-projects/mr-thomas-apartments-by-mala-constructions.png",
+  //   description: "Modern apartment complex featuring contemporary amenities",
+  // },
+
+  // {
+  //   id: "vasudevan-residence",
+  //   title: "Mr. Vasudevan Residence",
+  //   location: "Poombukar Nagar",
+  //   type: "Residential",
+  //   status: "ongoing",
+  //   gradient: "from-cyan-800 to-cyan-600",
+  //   image: "/images/on-going-projects/mr-vasudevan-residence-by-mala-constructions.png",
+  //   description: "Custom-designed luxury residence with premium finishes",
+  // },
+
+  // {
+  //   id: "samuel-sathish-residence",
+  //   title: "Mr. Samuel Sathish Residence",
+  //   location: "Vadaperumbakkam",
+  //   type: "Residential",
+  //   status: "ongoing",
+  //   gradient: "from-sky-800 to-sky-600",
+  //   image: "/images/on-going-projects/mr-samuel-sathish-residence-by-mala-constructions.png",
+  //   description: "Modern residential villa featuring spacious interiors",
+  // },
+
+  // {
+  //   id: "krishna-menon-residence",
+  //   title: "Mr. Krishna Menon Residence",
+  //   location: "Tiruvottriyur",
+  //   type: "Residential",
+  //   status: "ongoing",
+  //   gradient: "from-indigo-800 to-indigo-600",
+  //   image: "/images/on-going-projects/mr-krishna-menon-residence-by-mala-constructions.png",
+  //   description: "Contemporary residential home at Tiruvottriyur",
+  // },
+
+  // {
+  //   id: "malas-legacy",
+  //   title: "Mrs. Mala's Legacy Residential Apartment",
+  //   location: "Kolathur",
+  //   type: "Residential",
+  //   status: "ongoing",
+  //   gradient: "from-violet-800 to-violet-600",
+  //   image: "/images/on-going-projects/mrs-malas-legacy-by-mala-constructions.png",
+  //   description: "Flagship residential apartment complex in Kolathur",
+  // },
 
 ];
 

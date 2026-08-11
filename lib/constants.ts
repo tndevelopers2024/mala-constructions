@@ -8,7 +8,7 @@ export const BRAND = {
 
 export const CONTACT = {
   address: "6, Shanthi Nagar, 1st Main Road, Kolathur, Chennai – 600 099",
-  phones: ["9840264993", "9789931141"],
+  phones: ["9789931141", "9840264993"],
   email: "malaconstructionschennai@gmail.com",
   website: "malaconstructions.com",
   mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.812224090909!2d80.20609827507567!3d13.04753058727402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52671eba2623ff%3A0x72973ce1f006e681!2sMala%20Construction!5e0!3m2!1sen!2sin!4v1712551893345!5m2!1sen!2sin",

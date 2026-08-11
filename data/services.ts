@@ -44,7 +44,7 @@ export const services: Service[] = [
   {
     id: "stay",
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10"><path d="M12 2v4"/><path d="m16.2 4.2 2.8 2.8"/><path d="M18 12h4"/><path d="m16.2 19.8 2.8-2.8"/><path d="M12 18v4"/><path d="m4.8 19.8 2.8-2.8"/><path d="M2 12h4"/><path d="m4.8 4.2 2.8 2.8"/></svg>`,
-    title: "At The Top (Stay by Mala's)",
+    title: "Stay by Mala's",
     description:
       "Experience luxury living at its finest in our premium penthouse stay, just 6km from Chennai Central. A home away from home.",
   },

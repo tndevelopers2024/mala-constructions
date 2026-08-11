@@ -21,7 +21,7 @@ export default function HeroSection({
   primaryCta,
   secondaryCta,
   gradient = "from-charcoal via-charcoal-light to-charcoal",
-  minHeight = "min-h-screen",
+  minHeight = "min-h-[60vh]",
 }: HeroSectionProps) {
   return (
     <section className={`relative ${minHeight} flex items-center justify-center overflow-hidden`}>
@@ -44,7 +44,7 @@ export default function HeroSection({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-28">
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -122,7 +122,7 @@ export default function SignatureSapphirePage() {
     <div className="bg-warm-white selection:bg-gold selection:text-charcoal overflow-x-hidden">
 
       {/* Premium Hero Section */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-charcoal">
+      <section className="relative h-[calc(100vh-5rem)] min-h-[650px] md:min-h-[750px] flex items-center justify-center overflow-hidden bg-charcoal py-8 md:py-12">
         <div className="absolute inset-0 opacity-40">
           <SignatureCarousel />
         </div>
@@ -133,7 +133,7 @@ export default function SignatureSapphirePage() {
           SAPPHIRE
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-6">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/20 backdrop-blur-md animate-fade-up">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
             <span className="text-gold uppercase tracking-[0.3em] text-[10px] font-bold">Limited Edition: 6 Residences Only</span>
@@ -299,7 +299,7 @@ export default function SignatureSapphirePage() {
                     <p className="text-gold text-sm font-bold tracking-widest uppercase">{plan.config}</p>
                   </div>
                   <div className="px-4 py-2 bg-charcoal text-warm-white text-xs font-bold rounded-lg group-hover:bg-gold group-hover:text-charcoal transition-colors">
-                    Available
+                    Sold Out
                   </div>
                 </div>
 
@@ -368,90 +368,378 @@ export default function SignatureSapphirePage() {
       </section>
 
       {/* Exclusive Location Section */}
-    
+
 
       {/* Inquiry Form */}
-      <section id="inquiry" className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Full-bleed background image */}
-        <Image
-          src="/images/client-images/mala-construction-image-5-by-mala-constructions.avif"
-          alt="Mala Constructions luxury interior"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/95 via-charcoal/80 to-charcoal/60" />
-        {/* Gold tint bottom-right */}
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gold/10 blur-[120px] rounded-full" />
+      <section
+        id="sapphire-enquiry"
+        className="relative overflow-hidden bg-charcoal"
+      >
+        {/* Background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/client-images/mala-construction-image-1-by-mala-constructions.avif"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/40" />
+        </div>
 
-            {/* Left — branding + image mosaic */}
-            <div className="space-y-10">
-              <div>
-                <span className="text-gold tracking-[0.4em] uppercase text-[10px] font-bold">Limited Availability</span>
-                <h2 className="mt-4 text-5xl md:text-6xl font-serif font-bold text-warm-white leading-tight">
-                  Claim Your<br /><span className="text-gold">Sapphire</span>
-                </h2>
-                <p className="mt-6 text-warm-white/60 text-lg leading-relaxed max-w-md">
-                  Only 6 residences. Join the exclusive circle of homeowners at Signature Sapphire — where every detail is a statement.
-                </p>
+        {/* Decorative elements */}
+        <div className="absolute left-0 top-1/2 h-px w-24 bg-gold/30" />
+        <div className="absolute right-0 top-1/3 h-px w-24 bg-gold/20" />
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+
+          <div className="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-center">
+
+            {/* =====================================================
+          LEFT — BRANDING + CONTENT + IMAGE MOSAIC
+      ====================================================== */}
+            <div className="min-w-0">
+
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-10 h-px bg-gold" />
+
+                <span className="text-gold tracking-[0.4em] uppercase text-[10px] font-bold">
+                  Limited Availability
+                </span>
               </div>
 
-              {/* Highlights */}
-              <div className="space-y-4">
+              {/* Heading */}
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-serif font-bold text-warm-white leading-[0.95] tracking-tight">
+                Claim Your
+                <br />
+                <span className="text-gold">Sapphire</span>
+              </h2>
+
+              {/* Description */}
+              <p className="mt-7 text-warm-white/60 text-base sm:text-lg leading-relaxed max-w-lg">
+                Only 6 residences. Join the exclusive circle of homeowners at
+                Signature Sapphire — where every detail is a statement.
+              </p>
+
+
+              {/* =====================================================
+            HIGHLIGHTS
+        ====================================================== */}
+              <div className="mt-10 grid sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 max-w-3xl">
+
                 {[
-                  { label: "Brochure Request", desc: "Detailed project specs & pricing" },
-                  { label: "Site Visit Booking", desc: "Schedule a personal walkthrough" },
-                  { label: "Home Loan Assistance", desc: "We guide you through financing" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-start gap-4">
-                    <div className="mt-1 w-5 h-5 rounded-full border border-gold/40 flex items-center justify-center shrink-0">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gold" />
+                  {
+                    label: "Brochure Request",
+                    desc: "Detailed project specs & pricing",
+                  },
+                  {
+                    label: "Site Visit Booking",
+                    desc: "Schedule a personal walkthrough",
+                  },
+                  {
+                    label: "Home Loan Assistance",
+                    desc: "We guide you through financing",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={item.label}
+                    className="
+                group
+                relative
+                rounded-xl
+                border border-white/10
+                bg-black/10
+                p-4
+                backdrop-blur-sm
+                transition-all duration-300
+                hover:border-gold/30
+                hover:bg-black/20
+              "
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+
+                      <div className="w-6 h-6 rounded-full border border-gold/40 flex items-center justify-center shrink-0">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gold" />
+                      </div>
+
+                      <span className="text-gold/50 text-[12px] font-mono">
+                        0{index + 1}
+                      </span>
+
                     </div>
-                    <div>
-                      <p className="text-warm-white text-sm font-bold tracking-wide">{item.label}</p>
-                      <p className="text-warm-white/40 text-xs mt-0.5">{item.desc}</p>
-                    </div>
+
+                    <p className="text-warm-white text-sm font-bold tracking-wide">
+                      {item.label}
+                    </p>
+
+                    <p className="text-warm-white/40 text-xs mt-1.5 leading-relaxed">
+                      {item.desc}
+                    </p>
+
+                    {/* Hover line */}
+                    <div className="
+                absolute bottom-0 left-4 right-4
+                h-px bg-gold/0
+                group-hover:bg-gold/40
+                transition-colors duration-300
+              " />
                   </div>
                 ))}
+
               </div>
 
-              {/* 2×2 image mosaic */}
-              <div className="grid grid-cols-2 gap-3 max-w-sm">
+
+              {/* =====================================================
+            ARCHITECTURAL IMAGE MOSAIC
+        ====================================================== */}
+              <div className="mt-10 grid grid-cols-2 gap-3 max-w-2xl">
+
                 {[
                   "/images/client-images/mala-construction-image-1-by-mala-constructions.avif",
-                  "/images/client-images/mala-construction-image-3-by-mala-constructions.avif",
-                  "/images/client-images/mala-construction-image-7-by-mala-constructions.avif",
-                  "/images/client-images/mala-construction-image-10-by-mala-constructions.avif",
+                  // "/images/client-images/mala-construction-image-7-by-mala-constructions.avif",
+                  "/images/client-images/mala-construction-image-5-by-mala-constructions.avif"
                 ].map((src, i) => (
-                  <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-white/5">
+                  <div
+                    key={i}
+                    className="
+                group
+                relative
+                aspect-[12/16]
+                overflow-hidden
+                rounded-2xl
+                border border-white/10
+                bg-charcoal
+              "
+                  >
+
                     <Image
                       src={src}
-                      alt={`Mala project ${i + 1}`}
+                      alt={`Mala Construction project ${i + 1}`}
                       fill
-                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 50vw, 320px"
+                      className="
+                  object-cover
+                  transition-transform
+                  duration-700
+                  ease-out
+                  group-hover:scale-105
+                "
                     />
-                    <div className="absolute inset-0 bg-charcoal/20 hover:bg-transparent transition-colors duration-500" />
+
+                    {/* Overlay */}
+                    <div className="
+                absolute inset-0
+                bg-black/10
+                group-hover:bg-black/35
+                transition-colors duration-500
+              " />
+
+                    {/* Preview icon */}
+                    {/* <div className="
+                absolute
+                bottom-3
+                right-3
+                w-9
+                h-9
+                rounded-full
+                bg-gold
+                text-charcoal
+                flex
+                items-center
+                justify-center
+                opacity-0
+                translate-y-2
+                group-hover:opacity-100
+                group-hover:translate-y-0
+                transition-all
+                duration-300
+                shadow-lg
+              ">
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                        />
+                      </svg>
+                    </div> */}
+
                   </div>
                 ))}
+
               </div>
+
             </div>
 
-            {/* Right — frosted glass form card */}
-            <div className="backdrop-blur-md bg-white/[0.06] border border-white/10 rounded-3xl p-10 shadow-2xl shadow-charcoal/40">
-              <div className="mb-8">
-                <h3 className="text-2xl font-serif font-bold text-warm-white mb-1">Send an Enquiry</h3>
-                <p className="text-warm-white/40 text-sm">Our team will reach out within 24 hours.</p>
+
+            {/* =====================================================
+          RIGHT — ENQUIRY CARD
+      ====================================================== */}
+            <div className="relative">
+
+              {/* Glow */}
+              <div className="
+          absolute
+          -inset-8
+          rounded-full
+          bg-gold/[0.035]
+          blur-3xl
+          pointer-events-none
+        " />
+
+              <div className="
+          relative
+          rounded-3xl
+          border border-white/10
+          bg-charcoal/75
+          backdrop-blur-xl
+          p-6
+          sm:p-8
+          md:p-10
+          shadow-2xl
+        ">
+
+                {/* Top gold line */}
+                <div className="
+            absolute
+            top-0
+            left-8
+            right-8
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-gold/60
+            to-transparent
+          " />
+
+                {/* Form heading */}
+                <div className="flex items-start justify-between gap-5 mb-8">
+
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-warm-white">
+                      Send an Enquiry
+                    </h3>
+
+                    <p className="mt-2 text-warm-white/40 text-sm leading-relaxed">
+                      Our team will reach out within 24 hours.
+                    </p>
+                  </div>
+
+
+
+                </div>
+
+
+                {/* Divider */}
+                <div className="h-px bg-white/10 mb-8" />
+
+
+                {/* Existing enquiry form */}
+                <InquiryForm glass />
+
+
+                {/* Privacy / response information */}
+                <div className="
+            mt-7
+            pt-6
+            border-t border-white/10
+            flex items-start gap-3
+          ">
+
+                  <div className="
+              w-8
+              h-8
+              rounded-full
+              bg-gold/10
+              flex
+              items-center
+              justify-center
+              shrink-0
+            ">
+                    <svg
+                      className="w-4 h-4 text-gold"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 11V7m0 8h.01M5.07 19a9 9 0 1113.86 0"
+                      />
+                    </svg>
+                  </div>
+
+                  <p className="text-warm-white/35 text-[11px] leading-relaxed">
+                    Your details remain private. Our team will reach out
+                    within 24 hours regarding your Signature Sapphire enquiry.
+                  </p>
+
+                </div>
+
               </div>
-              <InquiryForm glass />
+
+
+              {/* Availability indicator */}
+              {/* <div className="
+          mt-5
+          flex
+          items-center
+          justify-center
+          gap-2
+        ">
+
+                <span className="relative flex w-2 h-2">
+                  <span className="
+              absolute
+              inline-flex
+              w-full
+              h-full
+              rounded-full
+              bg-gold
+              opacity-50
+              animate-ping
+            " />
+
+                  <span className="
+              relative
+              inline-flex
+              w-2
+              h-2
+              rounded-full
+              bg-gold
+            " />
+                </span>
+
+                <span className="
+            text-[10px]
+            uppercase
+            tracking-[0.25em]
+            text-warm-white/35
+          ">
+                  Only 6 residences available
+                </span>
+
+              </div> */}
+
             </div>
 
           </div>
+
         </div>
       </section>
+
     </div>
   );
 }

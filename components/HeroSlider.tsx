@@ -5,9 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+// interface Slide {
+//   id: number;
+//   image: string;
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   primaryCta: { label: string; href: string };
+//   secondaryCta: { label: string; href: string };
+// }
+
 interface Slide {
   id: number;
-  image: string;
+  image?: string;
+  video?: string;
   title: string;
   subtitle: string;
   description: string;
@@ -18,7 +29,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/images/hero/hero-crafting-architectural-excellence-by-mala-constructions.avif",
+    video: "https://res.cloudinary.com/rlokioxu/video/upload/v1786360583/hero-crafting_ycigwb.mp4",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
     description: "Bespoke modern villas in Chennai.",
@@ -27,7 +38,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "/images/hero/hero-engineering-the-future-by-mala-constructions.avif",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786360574/ChatGPT_Image_Aug_10_2026_04_44_49_PM_h1vk6u.png",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
     description: "State-of-the-art commercial construction.",
@@ -36,7 +47,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "/images/hero/hero-refined-luxury-living-by-mala-constructions.avif",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786360575/ChatGPT_Image_Aug_10_2026_01_57_56_PM_q06clp.png",
     title: "Refined Luxury Living",
     subtitle: "INTERIOR & HOSPITALITY",
     description: "Premium penthouse and interior designs.",
@@ -87,7 +98,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden bg-charcoal">
+    <section className="relative h-[calc(100vh-5rem)] min-h-[600px] md:min-h-[700px] w-full overflow-hidden bg-charcoal">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentSlide}
@@ -103,23 +114,53 @@ export default function HeroSlider() {
           }}
           className="absolute inset-0 w-full h-full"
         >
-          {/* Background Image */}
-          <div className="relative w-full h-full">
-            <Image
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/60 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/40 md:to-transparent" />
+          {/* =========================
+      BACKGROUND
+  ========================== */}
+          <div className="absolute inset-0 z-0">
+            {slides[currentSlide].video ? (
+              <video
+                key={slides[currentSlide].video}
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              >
+                <source
+                  src={slides[currentSlide].video}
+                  type="video/mp4"
+                />
+              </video>
+            ) : (
+              <Image
+                src={slides[currentSlide].image!}
+                alt={slides[currentSlide].title}
+                fill
+                priority={currentSlide === 0}
+                className="object-cover"
+              />
+            )}
           </div>
 
-          {/* Content */}
-          <div className="absolute inset-0 z-10 flex items-center">
+          {/* =========================
+      DARK OVERLAY
+  ========================== */}
+          <div className="absolute inset-0 z-10 bg-black/30" />
+
+          {/* =========================
+      LEFT GRADIENT
+  ========================== */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+
+          {/* =========================
+      CONTENT
+  ========================== */}
+          <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-5xl">
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -128,7 +169,7 @@ export default function HeroSlider() {
                 >
                   {slides[currentSlide].subtitle}
                 </motion.p>
-                
+
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -159,6 +200,7 @@ export default function HeroSlider() {
                   >
                     {slides[currentSlide].primaryCta.label}
                   </Link>
+
                   <Link
                     href={slides[currentSlide].secondaryCta.href}
                     className="w-full sm:w-auto px-8 py-4 border border-warm-white/30 text-warm-white font-bold rounded-sm hover:bg-warm-white/10 transition-all duration-300 text-sm uppercase tracking-widest text-center"
@@ -166,6 +208,7 @@ export default function HeroSlider() {
                     {slides[currentSlide].secondaryCta.label}
                   </Link>
                 </motion.div>
+
               </div>
             </div>
           </div>
@@ -207,9 +250,8 @@ export default function HeroSlider() {
             aria-label={`Go to slide ${index + 1}`}
           >
             <div
-              className={`h-full w-full transition-all duration-500 rounded-full ${
-                index === currentSlide ? "bg-gold scale-y-100" : "bg-warm-white/20 scale-y-50 group-hover:bg-warm-white/40"
-              }`}
+              className={`h-full w-full transition-all duration-500 rounded-full ${index === currentSlide ? "bg-gold scale-y-100" : "bg-warm-white/20 scale-y-50 group-hover:bg-warm-white/40"
+                }`}
             />
             {index === currentSlide && (
               <motion.div

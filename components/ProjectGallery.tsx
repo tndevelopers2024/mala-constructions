@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ProjectGallery() {
   const [displayCount, setDisplayCount] = useState(12);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  
+
   const visibleImages = galleryImages.slice(0, displayCount);
   const hasMore = displayCount < galleryImages.length;
 
@@ -28,13 +28,13 @@ export default function ProjectGallery() {
   }, []);
 
   const navigateNext = useCallback(() => {
-    setSelectedImageIndex((prev) => 
+    setSelectedImageIndex((prev) =>
       prev !== null ? (prev + 1) % galleryImages.length : null
     );
   }, []);
 
   const navigatePrev = useCallback(() => {
-    setSelectedImageIndex((prev) => 
+    setSelectedImageIndex((prev) =>
       prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : null
     );
   }, []);
@@ -59,45 +59,183 @@ export default function ProjectGallery() {
           subtitle="A visual journey through our diverse construction and design projects"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+
+        {/* Masonry Gallery */}
+        <div
+          className="
+    columns-1
+    sm:columns-2
+    lg:columns-3
+    xl:columns-4
+    gap-4
+    md:gap-6
+  "
+        >
           <AnimatePresence>
             {visibleImages.map((src, index) => (
-              <motion.div
+              <motion.button
                 key={src}
+                type="button"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: (index % 4) * 0.06,
+                }}
                 onClick={() => openLightbox(index)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
+                className="
+          group
+          relative
+          w-full
+          mb-4
+          md:mb-6
+          overflow-hidden
+          rounded-xl
+          bg-gray-50
+          break-inside-avoid
+          block
+          cursor-pointer
+          text-left
+        "
               >
+                {/* Full Image */}
                 <Image
                   src={src}
                   alt={`Mala Construction Project ${index + 1}`}
-                  fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  width={1200}
+                  height={900}
+                  className="
+            w-full
+            h-auto
+            block
+            object-contain
+          "
+                  sizes="
+            (max-width: 640px) 100vw,
+            (max-width: 1024px) 50vw,
+            (max-width: 1280px) 33vw,
+            25vw
+          "
                 />
-                
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 relative">
-                    <div className="w-10 h-1 bg-gold mb-3" />
-                    <p className="text-warm-white font-serif text-lg font-medium">Project Showcase</p>
-                    <p className="text-gold text-sm tracking-widest uppercase">Mala Constructions</p>
-                    
-                    {/* Zoom Icon Animation */}
-                    <div className="absolute -top-12 right-0 bg-gold/90 p-2 rounded-full transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-charcoal" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+
+                {/* Hover Overlay */}
+                <div
+                  className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-charcoal/85
+            via-charcoal/20
+            to-transparent
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity
+            duration-500
+          "
+                />
+
+
+                {/* Preview Icon */}
+                <div
+                  className="
+    absolute
+    bottom-5
+    right-5
+    z-20
+    w-11
+    h-11
+    rounded-full
+    bg-gold
+    text-charcoal
+    flex
+    items-center
+    justify-center
+    shadow-lg
+    opacity-0
+    translate-y-3
+    scale-90
+    group-hover:opacity-100
+    group-hover:translate-y-0
+    group-hover:scale-100
+    transition-all
+    duration-400
+  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12Z"
+                    />
+                    <circle cx="12" cy="12" r="2.75" />
+                  </svg>
+                </div>
+
+                {/* Hover Text */}
+                <div
+                  className="
+            absolute
+            inset-x-0
+            bottom-0
+            p-5
+            md:p-6
+            z-10
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity
+            duration-500
+          "
+                >
+                  <div
+                    className="
+              translate-y-4
+              group-hover:translate-y-0
+              transition-transform
+              duration-500
+            "
+                  >
+                    <div className="w-8 h-px bg-gold mb-3" />
+
+                    <p
+                      className="
+                text-warm-white
+                font-serif
+                text-lg
+                md:text-xl
+                font-medium
+              "
+                    >
+                      Project Showcase
+                    </p>
+
+                    <p
+                      className="
+                mt-1
+                text-gold
+                text-[10px]
+                md:text-xs
+                uppercase
+                tracking-[0.22em]
+              "
+                    >
+                      Mala Constructions
+                    </p>
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </AnimatePresence>
         </div>
+
+
 
         {hasMore && (
           <div className="mt-16 text-center">
@@ -106,10 +244,10 @@ export default function ProjectGallery() {
               className="inline-flex items-center px-10 py-4 bg-charcoal text-warm-white font-semibold rounded hover:bg-gold hover:text-charcoal transition-all duration-500 text-sm uppercase tracking-[0.2em] group"
             >
               Explore More
-              <svg 
-                className="w-5 h-5 ml-3 transform group-hover:translate-y-1 transition-transform" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                className="w-5 h-5 ml-3 transform group-hover:translate-y-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -130,7 +268,7 @@ export default function ProjectGallery() {
             onClick={closeLightbox}
           >
             {/* Close Button */}
-            <button 
+            <button
               onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
               className="absolute top-6 right-6 z-[110] text-warm-white hover:text-gold transition-all duration-300 p-2 bg-charcoal-light/50 hover:bg-charcoal-light rounded-full border border-warm-white/10"
               aria-label="Close lightbox"
@@ -141,7 +279,7 @@ export default function ProjectGallery() {
             </button>
 
             {/* Navigation Controls */}
-            <button 
+            <button
               onClick={(e) => { e.stopPropagation(); navigatePrev(); }}
               className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-[110] text-warm-white hover:text-gold transition-all duration-300 p-4 bg-charcoal-light/30 hover:bg-charcoal-light/80 rounded-full border border-warm-white/10 group"
               aria-label="Previous image"
@@ -151,7 +289,7 @@ export default function ProjectGallery() {
               </svg>
             </button>
 
-            <button 
+            <button
               onClick={(e) => { e.stopPropagation(); navigateNext(); }}
               className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 z-[110] text-warm-white hover:text-gold transition-all duration-300 p-4 bg-charcoal-light/30 hover:bg-charcoal-light/80 rounded-full border border-warm-white/10 group"
               aria-label="Next image"
@@ -162,7 +300,7 @@ export default function ProjectGallery() {
             </button>
 
             {/* Image Container */}
-            <motion.div 
+            <motion.div
               key={selectedImageIndex}
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -180,7 +318,7 @@ export default function ProjectGallery() {
                   priority
                 />
               </div>
-              
+
               {/* Image Info */}
               <div className="mt-8 text-center bg-charcoal-light/40 backdrop-blur-md px-8 py-4 rounded-xl border border-warm-white/10">
                 <p className="text-warm-white font-serif text-xl md:text-2xl mb-1 italic">Project Excellence</p>
