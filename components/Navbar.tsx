@@ -10,47 +10,7 @@ import { NAV_LINKS } from "@/lib/constants";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isPreloaderActive, setIsPreloaderActive] = useState(true);
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).__preloaderFinished) {
-      setIsPreloaderActive(false);
-      setHasUserInteracted(true);
-      return;
-    }
-
-    const handlePreloaderFinished = () => {
-      setIsPreloaderActive(false);
-    };
-
-    window.addEventListener("preloaderFinished", handlePreloaderFinished);
-    return () => {
-      window.removeEventListener("preloaderFinished", handlePreloaderFinished);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isPreloaderActive) return;
-    if (hasUserInteracted) return;
-
-    const handleInteraction = () => {
-      setHasUserInteracted(true);
-    };
-
-    const events = ["scroll", "touchstart", "touchmove", "mousemove", "click", "keydown", "wheel", "pointerdown"];
-
-    events.forEach((event) => {
-      window.addEventListener(event, handleInteraction, { passive: true, once: true });
-    });
-
-    return () => {
-      events.forEach((event) => {
-        window.removeEventListener(event, handleInteraction);
-      });
-    };
-  }, [isPreloaderActive, hasUserInteracted]);
 
   useEffect(() => {
     let ticking = false;
@@ -73,17 +33,11 @@ export default function Navbar() {
   }, [pathname]);
 
   const isLight = true;
-  const isHomePage = pathname === "/";
-  const isVisible = isHomePage ? (!isPreloaderActive && hasUserInteracted) : true;
 
   return (
     <nav
-      className={`z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-black/5 ${
+      className={`sticky top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-black/5 ${
         isScrolled ? "shadow-md" : "shadow-sm"
-      } ${
-        isVisible
-          ? "sticky top-0 translate-y-0 opacity-100 pointer-events-auto visible block"
-          : "fixed top-0 left-0 w-full -translate-y-full opacity-0 pointer-events-none invisible hidden"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

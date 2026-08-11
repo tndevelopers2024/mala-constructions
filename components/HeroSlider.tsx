@@ -102,7 +102,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative h-[600px] sm:h-[650px] lg:h-[750px] w-full overflow-hidden bg-charcoal select-none">
+    <section className="relative h-[550px] sm:h-[600px] lg:h-[700px] w-full overflow-hidden bg-charcoal select-none">
       <AnimatePresence mode="sync">
         <motion.div
           key={currentSlide}
