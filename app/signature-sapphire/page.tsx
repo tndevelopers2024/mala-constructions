@@ -51,16 +51,30 @@ const floorPlans = [
     area: "1084",
     config: "3BHK Luxury Suite",
     toilets: "3",
-    image: "/images/blue-print/elite-series-f1-by-mala-constructions.png",
-    details: ["East Facing", "UDS: 485 sq.ft", "Private Balcony", "Ventilated Kitchen"]
+    status: "Sold Out",
+    image:
+      "/images/blue-print/elite-series-f1-by-mala-constructions.png",
+    details: [
+      "East Facing",
+      "UDS: 485 sq.ft",
+      "Private Balcony",
+      "Ventilated Kitchen",
+    ],
   },
   {
     type: "Elite Series F2",
     area: "1154",
     config: "3BHK Grand Suite",
     toilets: "3",
-    image: "/images/blue-print/elite-series-f2-by-mala-constructions.webp",
-    details: ["East Facing", "UDS: 516 sq.ft", "Expansion Living", "Corner Unit"]
+    status: "Available",
+    image:
+      "/images/blue-print/elite-series-f2-by-mala-constructions.webp",
+    details: [
+      "East Facing",
+      "UDS: 516 sq.ft",
+      "Expansion Living",
+      "Corner Unit",
+    ],
   },
 ];
 
@@ -299,7 +313,9 @@ export default function SignatureSapphirePage() {
                     <p className="text-gold text-sm font-bold tracking-widest uppercase">{plan.config}</p>
                   </div>
                   <div className="px-4 py-2 bg-charcoal text-warm-white text-xs font-bold rounded-lg group-hover:bg-gold group-hover:text-charcoal transition-colors">
-                    Sold Out
+
+                    {plan.status}
+
                   </div>
                 </div>
 

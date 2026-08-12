@@ -13,38 +13,68 @@ interface Slide {
   title: string;
   subtitle: string;
   description: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
 }
 
 const slides: Slide[] = [
   {
     id: 1,
-    video: "https://res.cloudinary.com/rlokioxu/video/upload/v1786360583/hero-crafting_ycigwb.mp4",
+    video:
+      "https://res.cloudinary.com/rlokioxu/video/upload/v1786360583/hero-crafting_ycigwb.mp4",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
     description: "Bespoke modern villas in Chennai.",
-    primaryCta: { label: "Explore Projects", href: "/projects" },
-    secondaryCta: { label: "Our Story", href: "/about" },
+    primaryCta: {
+      label: "Explore Projects",
+      href: "/projects",
+    },
+    secondaryCta: {
+      label: "Our Story",
+      href: "/about",
+    },
   },
+
   {
     id: 2,
-    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
+    image:
+      "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
     title: "Engineering The Future",
     subtitle: "COMMERCIAL & INDUSTRIAL",
     description: "State-of-the-art commercial construction.",
-    primaryCta: { label: "View Services", href: "/services" },
-    secondaryCta: { label: "Contact Us", href: "/contact" },
+    primaryCta: {
+      label: "View Services",
+      href: "/services",
+    },
+    secondaryCta: {
+      label: "Contact Us",
+      href: "/contact",
+    },
   },
+
   {
     id: 3,
-    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
+    image:
+      "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
     title: "Refined Luxury Living",
     subtitle: "INTERIOR & HOSPITALITY",
     description: "Premium penthouse and interior designs.",
-    primaryCta: { label: "Luxury Stay", href: "/contact" },
-    secondaryCta: { label: "Get a Quote", href: "/contact" },
+    primaryCta: {
+      label: "Luxury Stay",
+      href: "/contact",
+    },
+    secondaryCta: {
+      label: "Get a Quote",
+      href: "/contact",
+    },
   },
+
   {
     id: 4,
     image:
@@ -52,9 +82,15 @@ const slides: Slide[] = [
     title: "Building Dreams, Creating Legacies",
     subtitle: "RESIDENTIAL CONSTRUCTION",
     description:
-      "Thoughtfully designed homes built with precision, quality, and lasting craftsmanship.",
-    primaryCta: { label: "Explore Projects", href: "/projects" },
-    secondaryCta: { label: "Start Your Project", href: "/contact" },
+      "Thoughtfully designed homes built with precision and quality.",
+    primaryCta: {
+      label: "Explore Projects",
+      href: "/projects",
+    },
+    secondaryCta: {
+      label: "Start Your Project",
+      href: "/contact",
+    },
   },
 
   {
@@ -64,138 +100,467 @@ const slides: Slide[] = [
     title: "Built With Trust & Excellence",
     subtitle: "QUALITY • CRAFTSMANSHIP • COMMITMENT",
     description:
-      "From concept to completion, we deliver exceptional spaces that stand the test of time.",
-    primaryCta: { label: "Discover MALA", href: "/about" },
-    secondaryCta: { label: "Contact Us", href: "/contact" },
-  }
+      "Exceptional spaces built to stand the test of time.",
+    primaryCta: {
+      label: "Discover MALA",
+      href: "/about",
+    },
+    secondaryCta: {
+      label: "Contact Us",
+      href: "/contact",
+    },
+  },
 ];
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const current = slides[currentSlide];
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + slides.length) % slides.length
+    );
   }, []);
 
+  /* --------------------------------------------------------------
+     AUTOPLAY
+  -------------------------------------------------------------- */
+
   useEffect(() => {
-    const duration = currentSlide === 0 ? 10000 : 4000;
+    const duration = currentSlide === 0 ? 10000 : 5000;
+
     const timer = setTimeout(() => {
       nextSlide();
     }, duration);
+
     return () => clearTimeout(timer);
   }, [currentSlide, nextSlide]);
 
-  const fadeVariants = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-    },
-    exit: {
-      opacity: 0,
-    },
-  };
-
   return (
-    <section className="relative h-[550px] sm:h-[600px] lg:h-[700px] w-full overflow-hidden bg-charcoal select-none">
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-charcoal
+        select-none
+
+        h-[440px]
+        min-h-[440px]
+
+        sm:h-[500px]
+        sm:min-h-[500px]
+
+        md:h-[540px]
+        md:min-h-[540px]
+
+        lg:h-[600px]
+        lg:min-h-[600px]
+
+        xl:h-[620px]
+        xl:min-h-[620px]
+      "
+    >
+      {/* ==========================================================
+          SLIDE
+      ========================================================== */}
+
       <AnimatePresence mode="sync">
         <motion.div
           key={currentSlide}
-          variants={fadeVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{
-            duration: 0.8,
+            duration: 0.7,
             ease: "easeInOut",
           }}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0"
         >
-          {/* BACKGROUND MEDIA */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            {slides[currentSlide].video ? (
+          {/* ======================================================
+              IMAGE / VIDEO
+          ====================================================== */}
+
+          <div className="absolute inset-0">
+            {current.video ? (
               <video
-                key={slides[currentSlide].video}
-                className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+                key={current.video}
+                className="
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
+                  object-center
+                  pointer-events-none
+                "
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="metadata"
               >
-                <source src={optimizeCloudinaryUrl(slides[currentSlide].video!, { width: 1280 })} type="video/mp4" />
+                <source
+                  src={optimizeCloudinaryUrl(current.video, {
+                    width: 1280,
+                  })}
+                  type="video/mp4"
+                />
               </video>
             ) : (
               <Image
-                src={optimizeCloudinaryUrl(slides[currentSlide].image!, { width: 1600 })}
-                alt={slides[currentSlide].title}
+                src={optimizeCloudinaryUrl(current.image!, {
+                  width: 1600,
+                })}
+                alt={current.title}
                 fill
                 sizes="100vw"
                 priority={currentSlide === 0}
-                loading={currentSlide === 0 ? "eager" : "lazy"}
-                className="object-cover object-center pointer-events-none"
+                loading={
+                  currentSlide === 0 ? "eager" : "lazy"
+                }
+                className="
+                  object-cover
+                  object-center
+                  pointer-events-none
+                "
               />
             )}
           </div>
 
-          {/* OVERLAYS FOR OPTIMAL READABILITY */}
-          <div className="absolute inset-0 z-10 bg-black/40" />
-          <div className="absolute inset-0 z-10 bg-gradient-to-t sm:bg-gradient-to-r from-black/85 via-black/60 to-black/20 sm:to-transparent" />
+          {/* ======================================================
+              VERY LIGHT OVERLAY
+              
+              Keep the image visible.
+          ====================================================== */}
 
-          {/* CONTENT */}
-          <div className="absolute inset-0 z-20 flex items-center pt-12 pb-28 sm:pt-16 sm:pb-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-3xl lg:max-w-4xl">
-                <motion.p
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="text-gold tracking-[0.3em] sm:tracking-[0.4em] uppercase text-xs sm:text-sm md:text-base font-semibold mb-3 sm:mb-4"
-                >
-                  {slides[currentSlide].subtitle}
-                </motion.p>
+          <div
+            className="
+              absolute
+              inset-0
+              bg-black/10
+              z-10
+            "
+          />
 
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-warm-white leading-tight mb-4 sm:mb-6"
-                >
-                  {slides[currentSlide].title}
-                </motion.h1>
+          {/* ======================================================
+              BOTTOM GRADIENT
 
-                <motion.p
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                  className="text-warm-white/85 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-10 max-w-2xl font-light"
-                >
-                  {slides[currentSlide].description}
-                </motion.p>
+              Strong only where the text is located.
+          ====================================================== */}
+
+          <div
+            className="
+              absolute
+              inset-x-0
+              bottom-0
+              z-10
+
+              h-[65%]
+
+              bg-gradient-to-t
+              from-black/90
+              via-black/55
+              to-transparent
+            "
+          />
+
+          {/* ======================================================
+              MOBILE SIDE GRADIENT
+
+              Very subtle so image remains visible.
+          ====================================================== */}
+
+          <div
+            className="
+              absolute
+              inset-y-0
+              left-0
+              w-[45%]
+              z-10
+              bg-gradient-to-r
+              from-black/25
+              to-transparent
+
+              hidden
+              sm:block
+            "
+          />
+
+          {/* ======================================================
+              CONTENT
+
+              Bottom aligned.
+          ====================================================== */}
+
+          <div
+            className="
+              absolute
+              inset-x-0
+              bottom-0
+              z-20
+            "
+          >
+            <div
+              className="
+                mx-auto
+                w-full
+                max-w-7xl
+
+                px-5
+                sm:px-6
+                lg:px-8
+
+                pb-[76px]
+                sm:pb-[82px]
+                md:pb-[86px]
+                lg:pb-[92px]
+              "
+            >
+              <div
+                className="
+                  max-w-[620px]
+                  sm:max-w-[680px]
+                  lg:max-w-[760px]
+                "
+              >
+                {/* ==================================================
+                    SUBTITLE
+                ================================================== */}
 
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none"
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.15,
+                    duration: 0.4,
+                  }}
+                  className="mb-2 sm:mb-3"
                 >
-                  <Link
-                    href={slides[currentSlide].primaryCta.href}
-                    className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gold text-charcoal font-bold rounded-sm hover:bg-gold-light transition-all duration-300 text-xs sm:text-sm uppercase tracking-widest text-center shadow-lg hover:shadow-gold/20"
-                  >
-                    {slides[currentSlide].primaryCta.label}
-                  </Link>
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className="
+                        h-px
+                        w-6
+                        sm:w-8
+                        bg-gold
+                      "
+                    />
+
+                    <span
+                      className="
+                        text-gold
+                        uppercase
+                        font-semibold
+
+                        text-[9px]
+                        sm:text-[10px]
+                        md:text-xs
+
+                        tracking-[0.2em]
+                        sm:tracking-[0.3em]
+                      "
+                    >
+                      {current.subtitle}
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* ==================================================
+                    TITLE
+
+                    Much smaller than previous version.
+                ================================================== */}
+
+                <motion.h1
+                  initial={{
+                    opacity: 0,
+                    y: 15,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.22,
+                    duration: 0.5,
+                  }}
+                  className="
+                    font-serif
+                    font-bold
+                    text-warm-white
+
+                    leading-[1.02]
+                    tracking-[-0.02em]
+
+                    text-[2rem]
+                    sm:text-[2.8rem]
+                    md:text-[3.5rem]
+                    lg:text-[4.2rem]
+
+                    max-w-[600px]
+
+                    mb-2.5
+                    sm:mb-3
+                  "
+                >
+                  {current.title}
+                </motion.h1>
+
+                {/* ==================================================
+                    SHORT DESCRIPTION
+                ================================================== */}
+
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.3,
+                    duration: 0.45,
+                  }}
+                  className="
+                    text-warm-white/80
+
+                    text-xs
+                    sm:text-sm
+                    md:text-base
+
+                    leading-relaxed
+
+                    max-w-[470px]
+
+                    mb-4
+                    sm:mb-5
+                  "
+                >
+                  {current.description}
+                </motion.p>
+
+                {/* ==================================================
+                    BUTTONS
+                ================================================== */}
+
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.38,
+                    duration: 0.45,
+                  }}
+                  className="
+                    flex
+                    flex-row
+                    items-center
+                    gap-2.5
+                    sm:gap-3
+                  "
+                >
+                  {/* PRIMARY */}
 
                   <Link
-                    href={slides[currentSlide].secondaryCta.href}
-                    className="px-6 sm:px-8 py-3.5 sm:py-4 border border-warm-white/30 text-warm-white font-bold rounded-sm hover:bg-warm-white/10 transition-all duration-300 text-xs sm:text-sm uppercase tracking-widest text-center"
+                    href={current.primaryCta.href}
+                    className="
+                      inline-flex
+                      items-center
+                      justify-center
+
+                      min-h-[40px]
+                      sm:min-h-[44px]
+
+                      px-4
+                      sm:px-6
+
+                      bg-gold
+                      text-charcoal
+
+                      text-[9px]
+                      sm:text-[10px]
+                      md:text-xs
+
+                      font-bold
+                      uppercase
+                      tracking-[0.12em]
+
+                      rounded-sm
+
+                      whitespace-nowrap
+
+                      transition-all
+                      duration-300
+
+                      hover:bg-gold-light
+                      hover:-translate-y-0.5
+                    "
                   >
-                    {slides[currentSlide].secondaryCta.label}
+                    {current.primaryCta.label}
+                  </Link>
+
+                  {/* SECONDARY */}
+
+                  <Link
+                    href={current.secondaryCta.href}
+                    className="
+                      inline-flex
+                      items-center
+                      justify-center
+
+                      min-h-[40px]
+                      sm:min-h-[44px]
+
+                      px-4
+                      sm:px-6
+
+                      border
+                      border-warm-white/40
+
+                      bg-black/10
+                      backdrop-blur-sm
+
+                      text-warm-white
+
+                      text-[9px]
+                      sm:text-[10px]
+                      md:text-xs
+
+                      font-bold
+                      uppercase
+                      tracking-[0.12em]
+
+                      rounded-sm
+
+                      whitespace-nowrap
+
+                      transition-all
+                      duration-300
+
+                      hover:bg-warm-white
+                      hover:text-charcoal
+                    "
+                  >
+                    {current.secondaryCta.label}
                   </Link>
                 </motion.div>
               </div>
@@ -204,58 +569,215 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Arrows */}
-      <div className="absolute bottom-6 sm:bottom-10 right-4 sm:right-10 z-20 flex gap-2 sm:gap-4">
-        <button
-          onClick={prevSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-warm-white/20 text-warm-white hover:bg-gold hover:border-gold hover:text-charcoal transition-all duration-300 rounded-full bg-black/20 backdrop-blur-sm"
-          aria-label="Previous slide"
-        >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-none stroke-current" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-warm-white/20 text-warm-white hover:bg-gold hover:border-gold hover:text-charcoal transition-all duration-300 rounded-full bg-black/20 backdrop-blur-sm"
-          aria-label="Next slide"
-        >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-none stroke-current" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+      {/* ==========================================================
+          BOTTOM NAVIGATION
+      ========================================================== */}
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 sm:bottom-10 left-4 sm:left-10 z-20 flex items-center gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setCurrentSlide(index);
-            }}
-            className="group relative h-8 sm:h-10 w-2 flex items-center"
-            aria-label={`Go to slide ${index + 1}`}
-          >
-            <div
-              className={`h-full w-full transition-all duration-500 rounded-full ${index === currentSlide ? "bg-gold scale-y-100" : "bg-warm-white/20 scale-y-50 group-hover:bg-warm-white/40"
-                }`}
-            />
-            {index === currentSlide && (
-              <motion.div
-                layoutId="active-indicator"
-                className="absolute inset-0 bg-gold rounded-full blur-[2px] opacity-50"
-              />
-            )}
-          </button>
-        ))}
-        <div className="ml-3 sm:ml-4 text-warm-white/60 font-serif text-xs sm:text-sm tracking-tighter">
-          <span className="text-gold font-bold">0{currentSlide + 1}</span> / 0{slides.length}
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          right-0
+          z-30
+
+          px-5
+          sm:px-6
+          lg:px-8
+
+          pb-4
+          sm:pb-5
+          md:pb-6
+        "
+      >
+        <div
+          className="
+            mx-auto
+            max-w-7xl
+
+            flex
+            items-center
+            justify-between
+          "
+        >
+          {/* ======================================================
+              INDICATORS
+          ====================================================== */}
+
+          <div className="flex items-center gap-2">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.id}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className="p-1"
+              >
+                <span
+                  className={`
+                    block
+                    h-[2px]
+                    rounded-full
+                    transition-all
+                    duration-300
+
+                    ${index === currentSlide
+                      ? "w-8 sm:w-10 bg-gold"
+                      : "w-4 sm:w-5 bg-warm-white/40"
+                    }
+                  `}
+                />
+              </button>
+            ))}
+
+            <span
+              className="
+                ml-1.5
+                text-[9px]
+                sm:text-[10px]
+                tracking-wider
+                text-warm-white/60
+              "
+            >
+              <span className="text-gold font-semibold">
+                {String(currentSlide + 1).padStart(2, "0")}
+              </span>
+              {" / "}
+              {String(slides.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          {/* ======================================================
+              ARROWS
+          ====================================================== */}
+
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* PREVIOUS */}
+
+            <button
+              onClick={prevSlide}
+              aria-label="Previous slide"
+              className="
+                flex
+                items-center
+                justify-center
+
+                w-8
+                h-8
+
+                sm:w-9
+                sm:h-9
+
+                md:w-10
+                md:h-10
+
+                rounded-full
+
+                border
+                border-warm-white/30
+
+                bg-black/20
+                backdrop-blur-sm
+
+                text-warm-white
+
+                transition-all
+                duration-300
+
+                hover:bg-gold
+                hover:text-charcoal
+                hover:border-gold
+              "
+            >
+              <svg
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            {/* NEXT */}
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next slide"
+              className="
+                flex
+                items-center
+                justify-center
+
+                w-8
+                h-8
+
+                sm:w-9
+                sm:h-9
+
+                md:w-10
+                md:h-10
+
+                rounded-full
+
+                border
+                border-warm-white/30
+
+                bg-black/20
+                backdrop-blur-sm
+
+                text-warm-white
+
+                transition-all
+                duration-300
+
+                hover:bg-gold
+                hover:text-charcoal
+                hover:border-gold
+              "
+            >
+              <svg
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Decorative line */}
-      <div className="absolute left-0 bottom-0 w-full h-[1px] bg-gradient-to-r from-gold/50 via-gold/20 to-transparent z-20" />
+      {/* ==========================================================
+          BOTTOM GOLD LINE
+      ========================================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          right-0
+          z-40
+
+          h-px
+
+          bg-gradient-to-r
+          from-gold/50
+          via-gold/20
+          to-transparent
+        "
+      />
     </section>
   );
 }

@@ -7,6 +7,23 @@ import Image from "next/image";
 export default function Preloader() {
   const [show, setShow] = useState(true);
 
+  const unlockScroll = () => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.overscrollBehavior = "";
+    }
+  };
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overscrollBehavior = "none";
+    }
+    return unlockScroll;
+  }, []);
+
   useEffect(() => {
     // Ensure we show the preloader for at least 2 seconds for aesthetic impact
     const timer = setTimeout(() => {
@@ -23,7 +40,7 @@ export default function Preloader() {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={unlockScroll}>
       {show && (
         <motion.div
           initial={{ opacity: 1 }}
