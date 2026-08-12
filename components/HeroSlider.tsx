@@ -150,24 +150,16 @@ export default function HeroSlider() {
         bg-charcoal
         select-none
 
-        h-[440px]
-        min-h-[440px]
-
-        sm:h-[500px]
-        sm:min-h-[500px]
-
-        md:h-[540px]
-        md:min-h-[540px]
-
-        lg:h-[600px]
-        lg:min-h-[600px]
-
-        xl:h-[620px]
-        xl:min-h-[620px]
+        h-[420px]
+  sm:h-[460px]
+  md:h-[520px]
+  lg:h-[580px]
+  xl:h-[640px]
+  2xl:h-[700px]
       "
     >
       {/* ==========================================================
-          SLIDE
+          SLIDE MEDIA & CONTENT
       ========================================================== */}
 
       <AnimatePresence mode="sync">
@@ -234,24 +226,9 @@ export default function HeroSlider() {
           </div>
 
           {/* ======================================================
-              VERY LIGHT OVERLAY
+              CONTROLLED BOTTOM GRADIENT
               
-              Keep the image visible.
-          ====================================================== */}
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-black/10
-              z-10
-            "
-          />
-
-          {/* ======================================================
-              BOTTOM GRADIENT
-
-              Strong only where the text is located.
+              Stronger only behind text; keeps upper media clear.
           ====================================================== */}
 
           <div
@@ -260,78 +237,24 @@ export default function HeroSlider() {
               inset-x-0
               bottom-0
               z-10
-
-              h-[65%]
-
+              h-[70%]
+              sm:h-[65%]
               bg-gradient-to-t
-              from-black/90
-              via-black/55
+              from-black/85
+              via-black/45
               to-transparent
+              pointer-events-none
             "
           />
 
           {/* ======================================================
-              MOBILE SIDE GRADIENT
-
-              Very subtle so image remains visible.
+              TEXT CONTENT (Inside shared responsive container)
           ====================================================== */}
 
-          <div
-            className="
-              absolute
-              inset-y-0
-              left-0
-              w-[45%]
-              z-10
-              bg-gradient-to-r
-              from-black/25
-              to-transparent
-
-              hidden
-              sm:block
-            "
-          />
-
-          {/* ======================================================
-              CONTENT
-
-              Bottom aligned.
-          ====================================================== */}
-
-          <div
-            className="
-              absolute
-              inset-x-0
-              bottom-0
-              z-20
-            "
-          >
-            <div
-              className="
-                mx-auto
-                w-full
-                max-w-7xl
-
-                px-5
-                sm:px-6
-                lg:px-8
-
-                pb-[76px]
-                sm:pb-[82px]
-                md:pb-[86px]
-                lg:pb-[92px]
-              "
-            >
-              <div
-                className="
-                  max-w-[620px]
-                  sm:max-w-[680px]
-                  lg:max-w-[760px]
-                "
-              >
-                {/* ==================================================
-                    SUBTITLE
-                ================================================== */}
+          <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none pb-[56px] sm:pb-[64px] md:pb-[72px]">
+            <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
+              <div className="max-w-xl sm:max-w-2xl pointer-events-auto">
+                {/* SUBTITLE */}
 
                 <motion.div
                   initial={{
@@ -346,29 +269,19 @@ export default function HeroSlider() {
                     delay: 0.15,
                     duration: 0.4,
                   }}
-                  className="mb-2 sm:mb-3"
+                  className="mb-1.5 sm:mb-2"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="
-                        h-px
-                        w-6
-                        sm:w-8
-                        bg-gold
-                      "
-                    />
-
+                  <div className="flex items-center gap-2 sm:gap-2.5">
+                    <span className="h-px w-5 sm:w-7 bg-gold" />
                     <span
                       className="
                         text-gold
                         uppercase
                         font-semibold
-
                         text-[9px]
                         sm:text-[10px]
                         md:text-xs
-
-                        tracking-[0.2em]
+                        tracking-[0.22em]
                         sm:tracking-[0.3em]
                       "
                     >
@@ -377,11 +290,7 @@ export default function HeroSlider() {
                   </div>
                 </motion.div>
 
-                {/* ==================================================
-                    TITLE
-
-                    Much smaller than previous version.
-                ================================================== */}
+                {/* TITLE */}
 
                 <motion.h1
                   initial={{
@@ -400,27 +309,21 @@ export default function HeroSlider() {
                     font-serif
                     font-bold
                     text-warm-white
-
-                    leading-[1.02]
+                    leading-[1.05]
                     tracking-[-0.02em]
-
-                    text-[2rem]
-                    sm:text-[2.8rem]
-                    md:text-[3.5rem]
-                    lg:text-[4.2rem]
-
-                    max-w-[600px]
-
-                    mb-2.5
+                    drop-shadow-md
+                    mb-2
                     sm:mb-3
+                    max-w-[20ch]
                   "
+                  style={{
+                    fontSize: "clamp(1.75rem, 3.8vw, 3.75rem)",
+                  }}
                 >
                   {current.title}
                 </motion.h1>
 
-                {/* ==================================================
-                    SHORT DESCRIPTION
-                ================================================== */}
+                {/* DESCRIPTION */}
 
                 <motion.p
                   initial={{
@@ -436,26 +339,22 @@ export default function HeroSlider() {
                     duration: 0.45,
                   }}
                   className="
-                    text-warm-white/80
-
+                    text-warm-white/85
                     text-xs
                     sm:text-sm
                     md:text-base
-
+                    font-light
                     leading-relaxed
-
-                    max-w-[470px]
-
-                    mb-4
-                    sm:mb-5
+                    max-w-sm
+                    sm:max-w-md
+                    mb-3.5
+                    sm:mb-4.5
                   "
                 >
                   {current.description}
                 </motion.p>
 
-                {/* ==================================================
-                    BUTTONS
-                ================================================== */}
+                {/* CTA BUTTONS */}
 
                 <motion.div
                   initial={{
@@ -474,90 +373,70 @@ export default function HeroSlider() {
                     flex
                     flex-row
                     items-center
-                    gap-2.5
+                    gap-2
                     sm:gap-3
                   "
                 >
                   {/* PRIMARY */}
-
                   <Link
                     href={current.primaryCta.href}
                     className="
                       inline-flex
                       items-center
                       justify-center
-
-                      min-h-[40px]
-                      sm:min-h-[44px]
-
-                      px-4
-                      sm:px-6
-
+                      h-8
+                      sm:h-10
+                      px-3.5
+                      sm:px-5
                       bg-gold
                       text-charcoal
-
                       text-[9px]
                       sm:text-[10px]
                       md:text-xs
-
                       font-bold
                       uppercase
                       tracking-[0.12em]
-
                       rounded-sm
-
                       whitespace-nowrap
-
                       transition-all
                       duration-300
-
                       hover:bg-gold-light
                       hover:-translate-y-0.5
+                      shadow-sm
                     "
                   >
                     {current.primaryCta.label}
                   </Link>
 
                   {/* SECONDARY */}
-
                   <Link
                     href={current.secondaryCta.href}
                     className="
                       inline-flex
                       items-center
                       justify-center
-
-                      min-h-[40px]
-                      sm:min-h-[44px]
-
-                      px-4
-                      sm:px-6
-
+                      h-8
+                      sm:h-10
+                      px-3.5
+                      sm:px-5
                       border
                       border-warm-white/40
-
-                      bg-black/10
-                      backdrop-blur-sm
-
+                      bg-black/20
+                      backdrop-blur-xs
                       text-warm-white
-
                       text-[9px]
                       sm:text-[10px]
                       md:text-xs
-
                       font-bold
                       uppercase
                       tracking-[0.12em]
-
                       rounded-sm
-
                       whitespace-nowrap
-
                       transition-all
                       duration-300
-
                       hover:bg-warm-white
                       hover:text-charcoal
+                      hover:-translate-y-0.5
                     "
                   >
                     {current.secondaryCta.label}
@@ -570,7 +449,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* ==========================================================
-          BOTTOM NAVIGATION
+          BOTTOM NAVIGATION (SHARED CONTAINER)
       ========================================================== */}
 
       <div
@@ -580,186 +459,162 @@ export default function HeroSlider() {
           left-0
           right-0
           z-30
-
-          px-5
-          sm:px-6
-          lg:px-8
-
-          pb-4
-          sm:pb-5
-          md:pb-6
+          pb-3.5
+          sm:pb-4.5
+          md:pb-5
+          pointer-events-none
         "
       >
-        <div
-          className="
-            mx-auto
-            max-w-7xl
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
+          <div
+            className="
+              flex
+              items-center
+              justify-between
+              pt-2.5
+              border-t
+              border-warm-white/15
+              pointer-events-auto
+            "
+          >
+            {/* INDICATORS & NUMERICAL COUNTER */}
 
-            flex
-            items-center
-            justify-between
-          "
-        >
-          {/* ======================================================
-              INDICATORS
-          ====================================================== */}
-
-          <div className="flex items-center gap-2">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.id}
-                onClick={() => setCurrentSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-                className="p-1"
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span
+                className="
+                  text-[10px]
+                  sm:text-[11px]
+                  font-mono
+                  tracking-wider
+                  text-warm-white/70
+                "
               >
-                <span
-                  className={`
-                    block
-                    h-[2px]
-                    rounded-full
-                    transition-all
-                    duration-300
-
-                    ${index === currentSlide
-                      ? "w-8 sm:w-10 bg-gold"
-                      : "w-4 sm:w-5 bg-warm-white/40"
-                    }
-                  `}
-                />
-              </button>
-            ))}
-
-            <span
-              className="
-                ml-1.5
-                text-[9px]
-                sm:text-[10px]
-                tracking-wider
-                text-warm-white/60
-              "
-            >
-              <span className="text-gold font-semibold">
-                {String(currentSlide + 1).padStart(2, "0")}
+                <span className="text-gold font-bold">
+                  {String(currentSlide + 1).padStart(2, "0")}
+                </span>
+                {" / "}
+                {String(slides.length).padStart(2, "0")}
               </span>
-              {" / "}
-              {String(slides.length).padStart(2, "0")}
-            </span>
-          </div>
 
-          {/* ======================================================
-              ARROWS
-          ====================================================== */}
+              <div className="flex items-center gap-1 sm:gap-1.5 ml-1">
+                {slides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    onClick={() => setCurrentSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className="py-1 px-0.5 focus:outline-none group"
+                  >
+                    <span
+                      className={`
+                        block
+                        h-[2px]
+                        rounded-full
+                        transition-all
+                        duration-300
+                        ${index === currentSlide
+                          ? "w-6 sm:w-8 bg-gold"
+                          : "w-3 sm:w-4 bg-warm-white/30 group-hover:bg-warm-white/60"
+                        }
+                      `}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* PREVIOUS */}
+            {/* PREV / NEXT CONTROLS */}
 
-            <button
-              onClick={prevSlide}
-              aria-label="Previous slide"
-              className="
-                flex
-                items-center
-                justify-center
-
-                w-8
-                h-8
-
-                sm:w-9
-                sm:h-9
-
-                md:w-10
-                md:h-10
-
-                rounded-full
-
-                border
-                border-warm-white/30
-
-                bg-black/20
-                backdrop-blur-sm
-
-                text-warm-white
-
-                transition-all
-                duration-300
-
-                hover:bg-gold
-                hover:text-charcoal
-                hover:border-gold
-              "
-            >
-              <svg
-                className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <button
+                onClick={prevSlide}
+                aria-label="Previous slide"
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  w-7
+                  h-7
+                  sm:w-8
+                  sm:h-8
+                  md:w-9
+                  md:h-9
+                  rounded-full
+                  border
+                  border-warm-white/30
+                  bg-black/25
+                  backdrop-blur-sm
+                  text-warm-white
+                  transition-all
+                  duration-300
+                  hover:bg-gold
+                  hover:text-charcoal
+                  hover:border-gold
+                  active:scale-95
+                "
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
 
-            {/* NEXT */}
-
-            <button
-              onClick={nextSlide}
-              aria-label="Next slide"
-              className="
-                flex
-                items-center
-                justify-center
-
-                w-8
-                h-8
-
-                sm:w-9
-                sm:h-9
-
-                md:w-10
-                md:h-10
-
-                rounded-full
-
-                border
-                border-warm-white/30
-
-                bg-black/20
-                backdrop-blur-sm
-
-                text-warm-white
-
-                transition-all
-                duration-300
-
-                hover:bg-gold
-                hover:text-charcoal
-                hover:border-gold
-              "
-            >
-              <svg
-                className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
+              <button
+                onClick={nextSlide}
+                aria-label="Next slide"
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  w-7
+                  h-7
+                  sm:w-8
+                  sm:h-8
+                  md:w-9
+                  md:h-9
+                  rounded-full
+                  border
+                  border-warm-white/30
+                  bg-black/25
+                  backdrop-blur-sm
+                  text-warm-white
+                  transition-all
+                  duration-300
+                  hover:bg-gold
+                  hover:text-charcoal
+                  hover:border-gold
+                  active:scale-95
+                "
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* ==========================================================
-          BOTTOM GOLD LINE
+          ACCENT BOTTOM GOLD LINE
       ========================================================== */}
 
       <div
@@ -769,9 +624,7 @@ export default function HeroSlider() {
           left-0
           right-0
           z-40
-
           h-px
-
           bg-gradient-to-r
           from-gold/50
           via-gold/20
