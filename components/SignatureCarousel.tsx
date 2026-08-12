@@ -85,10 +85,10 @@
 "use client";
 
 import Image from "next/image";
-import { galleryImages } from "@/data/galleryImages";
+import { sapphireImages } from "@/data/sapphireImages";
 import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
-const sapphireImage = galleryImages[4];
+const sapphireImage = sapphireImages[2];
 
 export default function SignatureCarousel() {
   return (

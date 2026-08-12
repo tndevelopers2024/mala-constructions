@@ -515,9 +515,9 @@ export default function SignatureSapphirePage() {
               <div className="mt-10 grid grid-cols-2 gap-3 max-w-2xl">
 
                 {[
-                  "/images/client-images/mala-construction-image-1-by-mala-constructions.avif",
-                  // "/images/client-images/mala-construction-image-7-by-mala-constructions.avif",
-                  "/images/client-images/mala-construction-image-5-by-mala-constructions.avif"
+                  "https://res.cloudinary.com/rlokioxu/image/upload/v1786524639/Sapphire_-_1_seswb4.jpg",
+                  "https://res.cloudinary.com/rlokioxu/image/upload/v1786524648/Night_View_Sapphire_-_3_iaf0kz.jpg",
+                  // "https://res.cloudinary.com/rlokioxu/image/upload/v1786524714/Night_View_Sapphire_-_2_rrac8m.jpg"
                 ].map((src, i) => (
                   <div
                     key={i}
