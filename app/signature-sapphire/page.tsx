@@ -66,7 +66,7 @@ const floorPlans = [
     area: "1154",
     config: "3BHK Grand Suite",
     toilets: "3",
-    status: "Available",
+    status: "1 Unit Available",
     image:
       "/images/blue-print/elite-series-f2-by-mala-constructions.webp",
     details: [
