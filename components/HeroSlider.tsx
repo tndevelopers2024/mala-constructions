@@ -27,7 +27,7 @@ const slides: Slide[] = [
   {
     id: 1,
     video:
-      "https://res.cloudinary.com/rlokioxu/video/upload/v1786360583/hero-crafting_ycigwb.mp4",
+      "https://res.cloudinary.com/rlokioxu/video/upload/v1786887497/MC_Hero_Video_piyjiw.mp4",
     title: "Crafting Architectural Excellence",
     subtitle: "MALA CONSTRUCTIONS",
     description: "Bespoke modern villas in Chennai.",
@@ -132,7 +132,7 @@ export default function HeroSlider() {
   -------------------------------------------------------------- */
 
   useEffect(() => {
-    const duration = currentSlide === 0 ? 10000 : 5000;
+    const duration = currentSlide === 0 ? 13000 : 5000;
 
     const timer = setTimeout(() => {
       nextSlide();
