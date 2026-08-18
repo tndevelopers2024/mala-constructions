@@ -28,16 +28,16 @@ const slides: Slide[] = [
     id: 1,
     video:
       "https://res.cloudinary.com/rlokioxu/video/upload/v1786887497/MC_Hero_Video_piyjiw.mp4",
-    title: "Crafting Architectural Excellence",
-    subtitle: "MALA CONSTRUCTIONS",
-    description: "Bespoke modern villas in Chennai.",
+    title: "Designed for Timeless Living",
+    subtitle: "EXCLUSIVE RESIDENCES • CHENNAI",
+    description: "Bespoke residences designed for modern luxury",
     primaryCta: {
-      label: "Explore Projects",
-      href: "/projects",
+      label: "Explore Residences",
+      href: "/signature-sapphire",
     },
     secondaryCta: {
-      label: "Our Story",
-      href: "/about",
+      label: "Contact Us",
+      href: "/contact",
     },
   },
 
@@ -45,9 +45,9 @@ const slides: Slide[] = [
     id: 2,
     image:
       "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
-    title: "Engineering The Future",
-    subtitle: "COMMERCIAL & INDUSTRIAL",
-    description: "State-of-the-art commercial construction.",
+    title: "Built With Purpose",
+    subtitle: "CONSTRUCTION & DEVELOPMENT",
+    description: "Precision construction for lasting spaces.",
     primaryCta: {
       label: "View Services",
       href: "/services",
@@ -62,9 +62,9 @@ const slides: Slide[] = [
     id: 3,
     image:
       "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
-    title: "Refined Luxury Living",
-    subtitle: "INTERIOR & HOSPITALITY",
-    description: "Premium penthouse and interior designs.",
+    title: "A Home Crafted For Living",
+    subtitle: "MR. PETER MATHEW RESIDENCE",
+    description: "A contemporary residence in Vadamberumbakkam.",
     primaryCta: {
       label: "Luxury Stay",
       href: "/contact",
@@ -79,10 +79,9 @@ const slides: Slide[] = [
     id: 4,
     image:
       "https://res.cloudinary.com/rlokioxu/image/upload/v1786452383/hero-4_tn0gcp.png",
-    title: "Building Dreams, Creating Legacies",
-    subtitle: "RESIDENTIAL CONSTRUCTION",
-    description:
-      "Thoughtfully designed homes built with precision and quality.",
+    title: "Where Business Meets Living",
+    subtitle: "MR. MATHEWS RESIDENCE & COMMERCIAL",
+    description: "A thoughtfully designed development in Jawahar Nagar.",
     primaryCta: {
       label: "Explore Projects",
       href: "/projects",
@@ -97,10 +96,9 @@ const slides: Slide[] = [
     id: 5,
     image:
       "https://res.cloudinary.com/rlokioxu/image/upload/v1786451951/hero-5_npnl0x.png",
-    title: "Built With Trust & Excellence",
-    subtitle: "QUALITY • CRAFTSMANSHIP • COMMITMENT",
-    description:
-      "Exceptional spaces built to stand the test of time.",
+    title: "Designed For Modern Living",
+    subtitle: "MR. GODANDAN RESIDENCE",
+    description: "A contemporary residence in Anjugam Nagar.",
     primaryCta: {
       label: "Discover MALA",
       href: "/about",
@@ -285,21 +283,23 @@ export default function HeroSlider() {
                   </p>
 
                   {/* CTA BUTTONS */}
-                  <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
-                    <Link
-                      href={current.primaryCta.href}
-                      className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-charcoal font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-md shadow-gold/20 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5"
-                    >
-                      {current.primaryCta.label}
-                    </Link>
+                  {currentSlide === 0 && (
+                    <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
+                      <Link
+                        href={current.primaryCta.href}
+                        className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-charcoal font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-md shadow-gold/20 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5"
+                      >
+                        {current.primaryCta.label}
+                      </Link>
 
-                    <Link
-                      href={current.secondaryCta.href}
-                      className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 border border-gold/40 bg-black/20 backdrop-blur-xs text-warm-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold/10 hover:border-gold hover:text-gold-light hover:-translate-y-0.5"
-                    >
-                      {current.secondaryCta.label}
-                    </Link>
-                  </div>
+                      <Link
+                        href={current.secondaryCta.href}
+                        className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 border border-gold/40 bg-black/20 backdrop-blur-xs text-warm-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-gold/10 hover:border-gold hover:text-gold-light hover:-translate-y-0.5"
+                      >
+                        {current.secondaryCta.label}
+                      </Link>
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
