@@ -28,15 +28,16 @@ const slides: Slide[] = [
     id: 1,
     video:
       "https://res.cloudinary.com/rlokioxu/video/upload/v1786887497/MC_Hero_Video_piyjiw.mp4",
-    title: "Designed for Timeless Living",
+    title: "Signature Sapphire",
     subtitle: "EXCLUSIVE RESIDENCES • CHENNAI",
-    description: "Bespoke residences designed for modern luxury",
+    description:
+      "A signature address crafted for timeless living, where contemporary architecture meets refined luxury.",
     primaryCta: {
-      label: "Explore Residences",
+      label: "Explore Signature Sapphire",
       href: "/signature-sapphire",
     },
     secondaryCta: {
-      label: "Contact Us",
+      label: "Enquire Now",
       href: "/contact",
     },
   },
