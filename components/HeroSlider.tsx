@@ -29,7 +29,7 @@ const slides: Slide[] = [
     video:
       "https://res.cloudinary.com/rlokioxu/video/upload/v1786887497/MC_Hero_Video_piyjiw.mp4",
     title: "Signature Sapphire",
-    subtitle: "EXCLUSIVE RESIDENCES • CHENNAI",
+    subtitle: "EXCLUSIVE RESIDENCES",
     description:
       "A signature address crafted for timeless living, where contemporary architecture meets refined luxury.",
     primaryCta: {
@@ -306,10 +306,8 @@ export default function HeroSlider() {
             </div>
 
             {/* Navigation & Controls Column */}
-            <div className="lg:col-span-4 flex flex-col justify-between items-start lg:items-end pt-4 lg:pt-0 border-t border-gold/15 lg:border-t-0">
-              {/* Slide Counter & Prev/Next Arrows */}
+            {/* <div className="lg:col-span-4 flex flex-col justify-between items-start lg:items-end pt-4 lg:pt-0 border-t border-gold/15 lg:border-t-0">
               <div className="w-full lg:w-auto flex items-center justify-between lg:justify-end gap-4">
-                {/* Numerical Counter */}
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-mono tracking-widest text-warm-white/70">
                   <span className="text-gold font-bold text-base sm:text-lg drop-shadow-sm">
                     {String(currentSlide + 1).padStart(2, "0")}
@@ -318,7 +316,6 @@ export default function HeroSlider() {
                   <span>{String(slides.length).padStart(2, "0")}</span>
                 </div>
 
-                {/* Arrow Navigation */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={prevSlide}
@@ -355,14 +352,13 @@ export default function HeroSlider() {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
+                        d="M9 5l7 7-7-7"
                       />
                     </svg>
                   </button>
                 </div>
               </div>
 
-              {/* Progress Indicator Tabs */}
               <div className="w-full flex items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
                 {slides.map((slide, index) => (
                   <button
@@ -387,10 +383,11 @@ export default function HeroSlider() {
                         <div className="h-full w-0 group-hover:w-full group-hover:bg-gold/40 transition-all duration-300" />
                       )}
                     </div>
+
                     <span
                       className={`block text-[9px] sm:text-[10px] mt-1.5 truncate font-medium transition-colors ${index === currentSlide
-                        ? "text-gold font-semibold"
-                        : "text-warm-white/40 group-hover:text-warm-white/70"
+                          ? "text-gold font-semibold"
+                          : "text-warm-white/40 group-hover:text-warm-white/70"
                         }`}
                     >
                       0{index + 1}
@@ -398,7 +395,7 @@ export default function HeroSlider() {
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
