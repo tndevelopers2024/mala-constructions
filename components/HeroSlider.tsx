@@ -42,73 +42,73 @@ const slides: Slide[] = [
     },
   },
 
-  {
-    id: 2,
-    image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
-    title: "Built With Purpose",
-    subtitle: "CONSTRUCTION & DEVELOPMENT",
-    description: "Precision construction for lasting spaces.",
-    primaryCta: {
-      label: "View Services",
-      href: "/services",
-    },
-    secondaryCta: {
-      label: "Contact Us",
-      href: "/contact",
-    },
-  },
+  // {
+  //   id: 2,
+  //   image:
+  //     "https://res.cloudinary.com/rlokioxu/image/upload/v1786455254/hero-2_xzcqyu.png",
+  //   title: "Built With Purpose",
+  //   subtitle: "CONSTRUCTION & DEVELOPMENT",
+  //   description: "Precision construction for lasting spaces.",
+  //   primaryCta: {
+  //     label: "View Services",
+  //     href: "/services",
+  //   },
+  //   secondaryCta: {
+  //     label: "Contact Us",
+  //     href: "/contact",
+  //   },
+  // },
 
-  {
-    id: 3,
-    image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
-    title: "A Home Crafted For Living",
-    subtitle: "MR. PETER MATHEW RESIDENCE",
-    description: "A contemporary residence in Vadamberumbakkam.",
-    primaryCta: {
-      label: "Luxury Stay",
-      href: "/contact",
-    },
-    secondaryCta: {
-      label: "Get a Quote",
-      href: "/contact",
-    },
-  },
+  // {
+  //   id: 3,
+  //   image:
+  //     "https://res.cloudinary.com/rlokioxu/image/upload/v1786455177/hero-3_zj8b34.png",
+  //   title: "A Home Crafted For Living",
+  //   subtitle: "MR. PETER MATHEW RESIDENCE",
+  //   description: "A contemporary residence in Vadamberumbakkam.",
+  //   primaryCta: {
+  //     label: "Luxury Stay",
+  //     href: "/contact",
+  //   },
+  //   secondaryCta: {
+  //     label: "Get a Quote",
+  //     href: "/contact",
+  //   },
+  // },
 
-  {
-    id: 4,
-    image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786452383/hero-4_tn0gcp.png",
-    title: "Where Business Meets Living",
-    subtitle: "MR. MATHEWS RESIDENCE & COMMERCIAL",
-    description: "A thoughtfully designed development in Jawahar Nagar.",
-    primaryCta: {
-      label: "Explore Projects",
-      href: "/projects",
-    },
-    secondaryCta: {
-      label: "Start Your Project",
-      href: "/contact",
-    },
-  },
+  // {
+  //   id: 4,
+  //   image:
+  //     "https://res.cloudinary.com/rlokioxu/image/upload/v1786452383/hero-4_tn0gcp.png",
+  //   title: "Where Business Meets Living",
+  //   subtitle: "MR. MATHEWS RESIDENCE & COMMERCIAL",
+  //   description: "A thoughtfully designed development in Jawahar Nagar.",
+  //   primaryCta: {
+  //     label: "Explore Projects",
+  //     href: "/projects",
+  //   },
+  //   secondaryCta: {
+  //     label: "Start Your Project",
+  //     href: "/contact",
+  //   },
+  // },
 
-  {
-    id: 5,
-    image:
-      "https://res.cloudinary.com/rlokioxu/image/upload/v1786451951/hero-5_npnl0x.png",
-    title: "Designed For Modern Living",
-    subtitle: "MR. GODANDAN RESIDENCE",
-    description: "A contemporary residence in Anjugam Nagar.",
-    primaryCta: {
-      label: "Discover MALA",
-      href: "/about",
-    },
-    secondaryCta: {
-      label: "Contact Us",
-      href: "/contact",
-    },
-  },
+  // {
+  //   id: 5,
+  //   image:
+  //     "https://res.cloudinary.com/rlokioxu/image/upload/v1786451951/hero-5_npnl0x.png",
+  //   title: "Designed For Modern Living",
+  //   subtitle: "MR. GODANDAN RESIDENCE",
+  //   description: "A contemporary residence in Anjugam Nagar.",
+  //   primaryCta: {
+  //     label: "Discover MALA",
+  //     href: "/about",
+  //   },
+  //   secondaryCta: {
+  //     label: "Contact Us",
+  //     href: "/contact",
+  //   },
+  // },
 ];
 
 export default function HeroSlider() {
