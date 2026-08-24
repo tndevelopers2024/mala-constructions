@@ -6,6 +6,7 @@ import InquiryForm from "./InquiryForm";
 import SignatureCarousel from "@/components/SignatureCarousel";
 import Image from "next/image";
 import Link from "next/link";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Signature Sapphire | Premium 3BHK Homes in Kolathur",
@@ -533,7 +534,7 @@ export default function SignatureSapphirePage() {
                   >
 
                     <Image
-                      src={src}
+                      src={optimizeCloudinaryUrl(src, { width: 1000, quality: "q_auto:best" })}
                       alt={`Mala Construction project ${i + 1}`}
                       fill
                       sizes="(max-width: 768px) 50vw, 320px"

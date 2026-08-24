@@ -23,7 +23,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className={`relative h-80 w-full bg-gradient-to-br ${project.gradient} overflow-hidden`}>
         {project.image ? (
           <Image
-            src={optimizeCloudinaryUrl(project.image, { width: 800 })}
+            src={optimizeCloudinaryUrl(project.image, { width: 900, quality: "q_auto:best" })}
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

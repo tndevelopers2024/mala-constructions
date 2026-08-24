@@ -94,7 +94,7 @@ export default function SignatureCarousel() {
   return (
     <div className="relative w-full h-full group rounded-2xl overflow-hidden shadow-2xl border border-gold/10">
       <Image
-        src={optimizeCloudinaryUrl(sapphireImage, { width: 1000 })}
+        src={optimizeCloudinaryUrl(sapphireImage, { width: 800, quality: "q_auto:good" })}
         alt="Signature Sapphire"
         fill
         sizes="(max-width: 1024px) 100vw, 50vw"

@@ -52,6 +52,18 @@ export default function ProjectGallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImageIndex, closeLightbox, navigateNext, navigatePrev]);
 
+  // Preload next and previous images when lightbox is active
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+    const nextIdx = (selectedImageIndex + 1) % galleryImages.length;
+    const prevIdx = (selectedImageIndex - 1 + galleryImages.length) % galleryImages.length;
+
+    [nextIdx, prevIdx].forEach((idx) => {
+      const img = new window.Image();
+      img.src = optimizeCloudinaryUrl(galleryImages[idx], { width: 1600, quality: "q_auto:best" });
+    });
+  }, [selectedImageIndex]);
+
   return (
     <section className="section-padding bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,11 +114,12 @@ export default function ProjectGallery() {
               >
                 {/* Full Image */}
                 <Image
-                  src={optimizeCloudinaryUrl(src, { width: 800 })}
+                  src={optimizeCloudinaryUrl(src, { width: 800, quality: "q_auto:best" })}
                   alt={`Mala Construction Project ${index + 1}`}
                   width={800}
                   height={600}
-                  loading="lazy"
+                  loading={index < 4 ? "eager" : "lazy"}
+                  priority={index < 4}
                   className="
             w-full
             h-auto
@@ -313,7 +326,7 @@ export default function ProjectGallery() {
             >
               <div className="relative w-full h-full">
                 <Image
-                  src={optimizeCloudinaryUrl(galleryImages[selectedImageIndex], { width: 1600 })}
+                  src={optimizeCloudinaryUrl(galleryImages[selectedImageIndex], { width: 1600, quality: "q_auto:best" })}
                   alt={`Mala Construction Project Full View`}
                   fill
                   sizes="100vw"
