@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   location: string;
-  type: "Residential" | "Commercial";
+  type: "Residential" | "Commercial" | "Educational" | "Commercial & Residential" | "Institutional";
   status: "completed" | "ongoing";
   gradient: string;
   image: string;
@@ -237,6 +237,266 @@ export const completedProjects: Project[] = [
     gradient: "from-violet-800 to-violet-600",
     image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786363340/mrs-malas-legacy-by-mala-constructions_hhx6xz.png",
     description: "Flagship residential apartment complex in Kolathur",
+  },
+  {
+    id: "pradeep-residence",
+    title: "Mr. Pradeep's Residence",
+    location: "Villivakkam",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358935/Mr.Pradeep_Residence_pywdqw.jpg",
+    description: "Private residence in Villivakkam",
+  },
+  {
+    id: "anjugam-nagar-residence",
+    title: "Mr. Praveen's Residence",
+    location: "Anjugam Nagar",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358936/Mr.Praveen_Residence_ltmsgd.jpg",
+    description: "Private residence in Anjugam Nagar",
+  },
+  {
+    id: "ram-hari-residence",
+    title: "Mr. Ram & Mr. Hari's Residence",
+    location: "Edappalayam",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358938/Mr.Ram_Mr.Hari_residence_tgsngl.jpg", // Add the residence image URL
+    description: "Private residence in Edappalayam",
+  },
+  {
+    id: "vijaya-residence",
+    title: "Mrs. Vijaya's Residence",
+    location: "Thiru Vi Ka Nagar",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358949/Mrs.Vijaya_residence_eiikj9.jpg", // Add the residence image URL
+    description: "Private residence in Thiru Vi Ka Nagar",
+  },
+  {
+    id: "subash-residence",
+    title: "Mr. Subash's Residence",
+    location: "Apparov Garden, Thiru Vi Ka Nagar",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358944/Mr.Subash_residence_orsw1b.jpg", // Add the residence image URL
+    description: "Private residence in Apparov Garden, Thiru Vi Ka Nagar",
+  },
+  {
+    id: "ramesh-pathara-residence",
+    title: "Mr. Ramesh Pathara's Residence",
+    location: "Chinnaswamy Nagar, Mathur",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358939/Mr.Ramesh_Pathara_residence_ahkqz8.jpg", // Add the residence image URL
+    description: "Private residence in Chinnaswamy Nagar, Mathur",
+  },
+  {
+    id: "malas-kalpa",
+    title: "Mala's Kalpa – 8-Potion Apartment",
+    location: "MMDA, Mathur",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358928/Mala_s_Kalpa_onbzlv.jpg", // Add the apartment image URL
+    description: "Residential apartment complex with 8 units in MMDA, Mathur",
+  },
+  {
+    id: "cadence-academy",
+    title: "The Cadence Academy",
+    location: "Periyar Nagar",
+    type: "Educational",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358953/The_Cadence_Academy_h7xdmq.jpg", // Add the academy image URL
+    description: "Educational academy in Periyar Nagar",
+  },
+  {
+    id: "everest-bakery-head-office",
+    title: "Everest Bakery Head Office",
+    location: "Perambur",
+    type: "Commercial",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358925/Everest_Bakery_Head_Office_e5wrtt.jpg", // Add the office image URL
+    description: "Head office of Everest Bakery in Perambur",
+  },
+  {
+    id: "peter-mathew-residence",
+    title: "Mr. Peter Mathew's Residence",
+    location: "Vadamberumbakkam",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358934/Mr.Peter_Mathew_residence_zy7fkf.jpg", // Add the residence image URL
+    description: "Private residence in Vadamberumbakkam",
+  },
+  {
+    id: "rodney-residence",
+    title: "Mr. Rodney Residence",
+    location: "Madhavaram Milk Colony",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358941/Mr.Rodney_residence_smyaoa.jpg", // Add the residence image URL
+    description: "Private residence in Madhavaram Milk Colony",
+  },
+  {
+    id: "pastor-dhas-residence",
+    title: "Pastor Dhas's Residence",
+    location: "Ring Road Housing Sector, Madhavaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358942/Mr.Sagayanadhan_residence_qdar5d.jpg", // Add the residence image URL
+    description: "Private residence in Ring Road Housing Sector, Madhavaram",
+  },
+  {
+    id: "godandan-residence",
+    title: "Mr. Godandan's Residence",
+    location: "Anjugam Nagar",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358930/Mr.Godandan_residence_txpmjj.jpg", // Add the residence image URL
+    description: "Private residence in Anjugam Nagar",
+  },
+  {
+    id: "jailani-residence",
+    title: "Mrs. Jailani's Residence",
+    location: "Prakash Nagar",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358948/Mrs.Jailani_Residence_couzr9.jpg", // Add the residence image URL
+    description: "Private residence in Prakash Nagar",
+  },
+  {
+    id: "john-residence",
+    title: "Mr. John's Residence",
+    location: "Porur",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358931/Mr.John_residence_hto7dg.jpg", // Add the residence image URL
+    description: "Private residence in Porur",
+  },
+  {
+    id: "vinod-residence",
+    title: "Mr. Vinod's Residence",
+    location: "Namangalam",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358948/Mr.Vinod_residence_z3af76.jpg", // Add the residence image URL
+    description: "Private residence in Namangalam",
+  },
+  {
+    id: "venkataraman-residence",
+    title: "Mr. Venkataraman's Residence",
+    location: "Porur",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358946/Mr.Venkatraman_residence_dfjwpv.jpg", // Add the residence image URL
+    description: "Private residence in Porur",
+  },
+  {
+    id: "shivaraman-residence",
+    title: "Mr. Shivaraman's Residence",
+    location: "Red Hills",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358943/Mr.Shivaraman_residence_xquzgl.jpg", // Add the residence image URL
+    description: "Private residence in Red Hills",
+  },
+  {
+    id: "ib-alpha",
+    title: "IB Alpha – 6-Unit Residential Apartment",
+    location: "Ring Road Housing Sector, Madhavaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358926/IB_Alpha_e2q7vj.jpg", // Add the apartment image URL
+    description: "Residential apartment complex with 6 units in Ring Road Housing Sector, Madhavaram",
+  },
+  {
+    id: "mathew-commercial-residential",
+    title: "Mr. Mathew's Commercial & Residential Project",
+    location: "70 Feet Road, Jawahar Nagar",
+    type: "Commercial & Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358933/Mr.Mathews_ib0ov0.jpg", // Add the project image URL
+    description: "Mixed-use commercial and residential project on 70 Feet Road, Jawahar Nagar",
+  },
+  {
+    id: "church-of-nazarene-old-age-home",
+    title: "Old Age Home for the Church of Nazarene",
+    location: "Alamadhi",
+    type: "Institutional",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358950/Old_age_home_xy2xha.jpg", // Add the project image URL
+    description: "Old age home built for the Church of Nazarene in Alamadhi",
+  },
+  {
+    id: "periyar-nagar-commercial-project",
+    title: "Commercial Project in Periyar Nagar",
+    location: "Opposite Thiruvallur Kalyana Mandapam, Periyar Nagar",
+    type: "Commercial",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358925/Commercial_project_opposite_to_thiruvallur_kalyana_mandabam_oal7ui.jpg", // Add the project image URL
+    description: "Commercial project opposite Thiruvallur Kalyana Mandapam in Periyar Nagar",
+  },
+  {
+    id: "unni-krishnan-residence",
+    title: "Mr. Unni Krishnan's Residence",
+    location: "Ring Road Housing Sector, Madhavaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358945/Mr.Unnikrishnan_residence_unwapn.jpg", // Add the residence image URL
+    description: "Private residence in Ring Road Housing Sector, Madhavaram",
+  },
+  {
+    id: "ib-harmony",
+    title: "IB Harmony – 6-Unit Residential Apartment",
+    location: "Puthagaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358927/IB_Harmony_l2ke95.jpg", // Add the apartment image URL
+    description: "Residential apartment complex with 6 units in Puthagaram",
+  },
+  {
+    id: "ib-regalaia",
+    title: "IB Regalaia – 6-Unit Residential Apartment",
+    location: "Ring Road Housing Sector, Madhavaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358927/IB_Regalaia_dmp57f.jpg", // Add the apartment image URL
+    description: "Residential apartment complex with 6 units in Ring Road Housing Sector, Madhavaram",
+  },
+  {
+    id: "jeemon-residence",
+    title: "Mr. Jeemon's Residence",
+    location: "Gillban Nagar, Madhavaram",
+    type: "Residential",
+    status: "completed",
+    gradient: "from-violet-800 to-violet-600",
+    image: "https://res.cloudinary.com/rlokioxu/image/upload/v1786358931/Mr.Jeemon_ltar3i.jpg", // Add the residence image URL
+    description: "Private residence in Gillban Nagar, Madhavaram",
   }
 ];
 

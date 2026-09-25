@@ -53,10 +53,8 @@ export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     const handleResize = () => {
       if (window.innerWidth < 640) {
         setSlidesToShow(1);
@@ -115,8 +113,6 @@ export default function TestimonialsSection() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImageIndex, closeLightbox, navigateNext, navigatePrev]);
-
-  if (!isMounted) return null;
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-charcoal">
